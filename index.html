@@ -20,7 +20,8 @@
             <h2 class="title">Undangan Raja Sehari</h2>
             <div class="monogram"><img src="img/initial logo.png" alt="Initial Logo">
             </div>
-            <p class="verse">"وَخَلَقۡنَٰكُمۡ أَزۡوَٰجٗا"<br>"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
+            <p class="verse">"وَخَلَقۡنَٰكُمۡ أَزۡوَٰجٗا"</p>
+            <p class="text-ver">"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
             <h1 class="names">Shaifullah Ahmad<br>&<br>Suraya Zulkifli</h1>
             <a href="#details" class="btn">Buka Undangan</a>
             
@@ -292,5 +293,14 @@ function startCountdown(dateString) {
 // Initialize layout configurations on mount
 switchEvent('perempuan');
     </script>
+
+    <script>
+  window.addEventListener("load", function() {
+    // Small timeout ensures the device layout engine is ready
+    setTimeout(function() {
+      window.scrollTo(0, 1);
+    }, 0);
+  });
+</script>
 </body>
 </html>
