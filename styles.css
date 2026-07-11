@@ -60,16 +60,55 @@ body.locked .mobile-container {
 /* ==========================================================================
    3. SCREEN & ANIMATION CONTROLS
    ========================================================================== */
+/* ==========================================================================
+   OPTIMIZED & ANIMATED SCREEN ELEMENT
+   ========================================================================== */
+
 .screen {
-    min-height: 100%;
-    width: 100%;
-    padding: 32px 24px;
+    /* Layout & Sizing */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    
+    /* Strictly forces the container to tie cleanly into your 450x920 grid bounds */
+    height: 100vh;
+    max-height: 920px;
+    
+    /* Spacing & Alignments */
+    padding: 40px 24px;
     text-align: center;
     position: relative;
+    box-sizing: border-box;
+    overflow: hidden; /* Keeps animated children constrained nicely inside view */
+
+    /* Native hardware acceleration for smoother mobile scrolling performance */
+    will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   ENTRANCE ANIMATION MECHANISM
+   ========================================================================== */
+
+/* 
+   Apply this class to any element inside your screens 
+   (e.g., <div class="monogram fade-in-up" style="--delay: 1;">) 
+*/
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpEffect 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    
+    /* Dynamic cascading sequence delay */
+    animation-delay: calc(var(--delay, 0) * 0.15s);
+}
+
+@keyframes fadeInUpEffect {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 #undagan #details {
@@ -489,7 +528,7 @@ body.revealed .bottom-nav {
 
 .swipe-indicators {
     position: absolute;
-    bottom: 300px;
+    bottom: 150px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -512,32 +551,3 @@ body.revealed .bottom-nav {
 /* ==========================================================================
    7. RESPONSIVE MEDIA QUERIES
    ========================================================================== */
-@media screen and (max-width: 450px) {
-    .mobile-container {
-        width: 100%;
-        height: 100vh;
-        max-height: none; 
-        font-size: 50%; 
-    }
-
-    .screen {
-        box-sizing: border-box; 
-        width: 100%; 
-        height: 90vh; 
-        max-height: 920px; 
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 30px 15px; 
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;     
-        text-align: center;      
-        font-size: 100%; 
-    }
-
-    .screen .monogram {
-        width: 80%; 
-        margin: 0 auto;
-    }
-}
