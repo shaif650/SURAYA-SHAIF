@@ -483,10 +483,5 @@ body {
 }
 .contact-actions a[href^="https://wa.me"]:hover { 
     background: #20ba5a; 
-}
 
-@media (max-width: 700px) {
- html{
-    font-size: 80%;
-  }
 }
