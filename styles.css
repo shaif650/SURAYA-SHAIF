@@ -14,9 +14,7 @@ body {
     min-height: 100vh;
 }
 
-button {
-  -webkit-tap-highlight-color: transparent; /* Fixes a similar blue flash on mobile devices */
-}
+
 .mobile-container {
     width: 100%;
     max-width: 500px;
@@ -121,7 +119,7 @@ button {
     justify-content: center; 
     align-items: center;     
     text-align: center;      
-    
+    background: transparent;
     background-color: #292959;
     color: white;
     border: none;
@@ -136,6 +134,7 @@ button {
 
 .btn:hover {
     background-color: #1a337e;
+  
 }
 
 .toggle-container {
@@ -233,6 +232,7 @@ button {
 
 /* 2. Your updated button style (fixed for side-by-side layouts) */
 .map-btn {
+    background: transparent;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -330,6 +330,7 @@ button {
             text-decoration: none;
             color: #64748b;
             font-size: 11px;
+            background: transparent;
         }
 
         .nav-item.active, .nav-item:hover {
@@ -391,7 +392,7 @@ button {
 .close-btn {
     position: absolute;
     top: -4.5px; right: 9px;
-    background: none; border: none;
+    background: transparent;
     font-size: 24px;
     z-index: 10;
     color: #292959; /* Matching Deep Navy */
