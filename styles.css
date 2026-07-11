@@ -39,10 +39,10 @@ body {
 
     .screen {
         padding: 30px 15px; /* Reduces padding for smaller screens */
-        width: 100%; /* Ensures the screen takes full width */
+        width: 60%; /* Ensures the screen takes full width */
         height: 100vh; /* Allows the screen to adjust height based on content */
         max-height: none; /* Prevents overflow on smaller screens */
-        font-size: 50%;
+        font-size: 10%;
         monogram {
             size: 80%; /* Adjusts monogram size for smaller screens */
         }
@@ -483,5 +483,6 @@ body {
 }
 .contact-actions a[href^="https://wa.me"]:hover { 
     background: #20ba5a; 
-
 }
+
+
