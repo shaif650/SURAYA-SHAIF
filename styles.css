@@ -117,14 +117,14 @@ body {
     justify-content: center; 
     align-items: center;     
     text-align: center;      
-    background: transparent; 
+    
     background-color: #292959;
     color: white;
     border: none;
     height: 30px;
     width: 140px;  
     border-radius: 15px;
-  
+    cursor: pointer;
     font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s ease;
@@ -133,7 +133,6 @@ body {
 
 .btn:hover {
     background-color: #1a337e;
-    background: transparent;
 }
 
 .toggle-container {
@@ -150,7 +149,7 @@ body {
     padding: 10px;
     border: none;
     border-radius: 25px;
-   
+    cursor: pointer;
     font-weight: 600;
     font-size: 0.85rem;
     transition: all 0.3s;
@@ -161,7 +160,6 @@ body {
 .toggle-btn.active {
     background: #292959;
     color: #ffffff;
-    background: transparent;
 }
 
 .countdown-grid {
@@ -237,7 +235,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    background: transparent;
     
     /* Removed the hardcoded width and absolute margins so they don't break the row */
     flex: 1;                 /* Forces both buttons to have an equal, flexible width */
@@ -255,7 +252,6 @@ body {
 
 .map-btn:active {
     transform: scale(0.96);
-    background: transparent;
 }
 
 .btn-google { background: #292959; color: white; }
@@ -332,7 +328,7 @@ body {
             text-decoration: none;
             color: #64748b;
             font-size: 11px;
-            
+            cursor: pointer;
         }
 
         .nav-item.active, .nav-item:hover {
@@ -394,8 +390,8 @@ body {
 .close-btn {
     position: absolute;
     top: -4.5px; right: 9px;
-    background: transparent;
-    font-size: 24px; 
+    background: none; border: none;
+    font-size: 24px; cursor: pointer; 
     z-index: 10;
     color: #292959; /* Matching Deep Navy */
 }
@@ -417,6 +413,7 @@ body {
     color: #292959; /* Deep Navy text */
     font-weight: bold; 
     font-size: 14px;
+    cursor: pointer;
     border-radius: 25px; /* Makes the individual button active state a pill */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -424,7 +421,6 @@ body {
 .tab-btn.active {
     background: #292959; /* Deep Navy active color */
     color: #f2f6fc; /* White text when selected like "Bersanding" */
-    background: transparent;
 }
 
 /* Horizontal Slider Mechanism */
