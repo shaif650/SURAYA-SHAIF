@@ -31,10 +31,10 @@ body {
 @media screen and (max-width: 500px) 
 {
     .mobile-container {
-        width: 100%;
+        width: 120%;
         height: 100vh;
-        max-height: none; /* Allows the container to take full height on smaller screens */
-        font-size: 50%; /* Adjusts font size for better readability on smaller devices */
+        max-height: 920px; /* Allows the container to take full height on smaller screens */
+        font-size: 30%; /* Adjusts font size for better readability on smaller devices */
     }
 
 
