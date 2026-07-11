@@ -75,7 +75,7 @@ body {
 .screen {
     min-height: 100%;
     width: 100%;
-    padding: 24px 16px;
+    padding: 32px 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,11 +86,11 @@ body {
 
 
 .monogram{
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
     display: flex;
     justify-content: center;
-    margin-bottom:5px;
+    margin: bottom 10px;
 }
 
 .monogram img {
@@ -99,7 +99,7 @@ body {
     }
 
 .title {
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #292959;
@@ -108,7 +108,7 @@ body {
 
 .verse {
     font-style: italic;
-    font-size: 14px;
+    font-size: 18px;
     color: #292959;
     margin-bottom: 15px;
     max-width: 85%;
@@ -117,9 +117,9 @@ body {
 
 .names {
     font-family: "Alex Brush", cursive;
-    font-weight: 1000;
+    font-weight: 900;
     font-style: normal;
-    font-size: 34px;
+    font-size: 46px;
     color: #292959;
     margin-bottom: 25px;
 }
