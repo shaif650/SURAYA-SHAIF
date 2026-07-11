@@ -336,7 +336,49 @@ function goToScreen(index) {
             }
         }
 
-        // Wedding Event Timing Records
+        
+        // ==========================================================================
+// SWIPE INTERACTION CONTROLLER FOR WEDDING EVENT SECTIONS
+// ==========================================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Target the main structural screen element housing the toggle, info card, maps, and counter
+    // Replace '.mobile-container' with your card wrapper if you prefer a tighter swipe zone
+    const swipeZone = document.querySelector('.mobile-container') || document.body;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    // Threshold in pixels needed to successfully register a true deliberate swipe action
+    const swipeThreshold = 50; 
+
+    swipeZone.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    swipeZone.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipeGesture();
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const distanceX = touchEndX - touchStartX;
+
+        // Swipe Left: Moves toward the next event profile (Lelaki)
+        if (distanceX < -swipeThreshold) {
+            if (currentSide === 'perempuan') {
+                switchEvent('lelaki');
+            }
+        }
+        
+        // Swipe Right: Moves toward the previous event profile (Perempuan)
+        else if (distanceX > swipeThreshold) {
+            if (currentSide === 'lelaki') {
+                switchEvent('perempuan');
+            }
+        }
+    }
+});// Wedding Event Timing Records
         const weddingData = {
             perempuan: {
                 targetDate: "2026-08-29T12:00:00", 
@@ -361,6 +403,7 @@ function goToScreen(index) {
         let currentSide = 'perempuan';
         let countdownInterval;
 
+        
         function switchEvent(side) {
             currentSide = side;
             
