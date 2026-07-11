@@ -39,7 +39,7 @@ body {
 
     .screen {
         padding: 30px 15px; /* Reduces padding for smaller screens */
-        width: 60%; /* Ensures the screen takes full width */
+        width: 100%; /* Ensures the screen takes full width */
         height: 100vh; /* Allows the screen to adjust height based on content */
         max-height: none; /* Prevents overflow on smaller screens */
         font-size: 10%;
@@ -486,3 +486,42 @@ body {
 }
 
 
+/* Responsive adjustments for smaller screens (e.g., iPhone SE, narrow viewports) */
+@media screen and (max-width: 380px), screen and (max-height: 700px) {
+    .screen {
+        padding: 24px 16px; /* Reduces excessive vertical space */
+    }
+
+    .title {
+        font-size: 14px; /* Slightly smaller header */
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .monogram {
+        width: 120px; /* Scaled down from 180px so it fits nicely on short screens */
+        height: 120px;
+        margin-bottom: 5px;
+    }
+    
+    .monogram img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .verse {
+        font-size: 14px; /* Scale down the verse text so it doesn't wrap into too many lines */
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    .names {
+        font-size: 34px; /* Brought down from 50px to prevent the text from breaking awkwardly */
+        margin-bottom: 25px;
+    }
+    
+    .btn {
+        padding: 10px 28px; /* Scales down the action button slightly */
+        font-size: 14px;
+    }
+}
