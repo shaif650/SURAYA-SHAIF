@@ -117,7 +117,7 @@ body {
     justify-content: center; 
     align-items: center;     
     text-align: center;      
-    
+    background: transparent; 
     background-color: #292959;
     color: white;
     border: none;
@@ -133,6 +133,7 @@ body {
 
 .btn:hover {
     background-color: #1a337e;
+    background: transparent;
 }
 
 .toggle-container {
@@ -160,6 +161,7 @@ body {
 .toggle-btn.active {
     background: #292959;
     color: #ffffff;
+    background: transparent;
 }
 
 .countdown-grid {
@@ -235,6 +237,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 6px;
+    background: transparent;
     
     /* Removed the hardcoded width and absolute margins so they don't break the row */
     flex: 1;                 /* Forces both buttons to have an equal, flexible width */
@@ -252,6 +255,7 @@ body {
 
 .map-btn:active {
     transform: scale(0.96);
+    background: transparent;
 }
 
 .btn-google { background: #292959; color: white; }
@@ -390,7 +394,7 @@ body {
 .close-btn {
     position: absolute;
     top: -4.5px; right: 9px;
-    background: none; border: none;
+    background: transparent;
     font-size: 24px; 
     z-index: 10;
     color: #292959; /* Matching Deep Navy */
@@ -413,7 +417,6 @@ body {
     color: #292959; /* Deep Navy text */
     font-weight: bold; 
     font-size: 14px;
-    
     border-radius: 25px; /* Makes the individual button active state a pill */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -421,6 +424,7 @@ body {
 .tab-btn.active {
     background: #292959; /* Deep Navy active color */
     color: #f2f6fc; /* White text when selected like "Bersanding" */
+    background: transparent;
 }
 
 /* Horizontal Slider Mechanism */
