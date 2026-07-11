@@ -8,14 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
-    
-
 </head>
 <body class="locked"> <!-- Starts with locked scroll behavior -->
 
-    <!-- Hidden audio element for your background wedding music -->
+    <!-- Single, unified audio element with correct fallback -->
     <audio id="weddingMusic" loop>
-        <source src="audio/wedding-song.mp3" type="audio/mpeg">
+        <source src="mp3/song 1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -31,11 +29,10 @@
             <p class="text-ver">"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
             <h1 class="names">Shaifullah Ahmad<br>&<br>Suraya Zulkifli</h1>
             
-            <!-- Modified button trigger to call JavaScript handler instead of direct anchor link -->
             <button onclick="openInvitation()" class="btn" style="cursor: pointer; border: none; text-decoration: none; display: inline-block;">Buka Undangan</button>
         </section>
         
-        <!-- Details Section (Hidden Until Opened) -->
+        <!-- Details Section -->
         <section class="screen" id="details">
             <h2 class="title">Butiran Majlis</h2>
 
@@ -64,7 +61,7 @@
 
     </div>
 
-    <!-- Bottom Navigation Bar (Hidden Behind Screen Boundary Initially) -->
+    <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
         <a href="#home" class="nav-item">
             <span class="nav-icon">🏠</span>
@@ -75,7 +72,8 @@
             <span>RSVP</span>
         </a> 
         
-        <div class="nav-item" onclick="toggleMusic()">
+        <!-- Music Toggle Button -->
+        <div class="nav-item" onclick="toggleMusic()" style="cursor: pointer;">
             <div class="music-toggle" id="musicBtn"></div>
             <span style="font-size: 11px; margin-top: 2px;">Muzik</span>
         </div>
@@ -155,15 +153,15 @@
             document.body.classList.remove('locked');
             document.body.classList.add('revealed');
             
-            // Attempt music playback (Handles automatic browser audio block rules)
+            // Interaction explicitly bypasses mobile auto-play blocks
             audio.play().then(() => {
                 const musicBtn = document.getElementById('musicBtn');
-                if(musicBtn) musicBtn.classList.add('playing'); // Sync UI animation if you have CSS spinning rules
+                if(musicBtn) musicBtn.classList.add('playing'); 
             }).catch(error => {
-                console.log("Audio playback waiting on standard interaction fallback: ", error);
+                console.log("Audio playback interface block: ", error);
             });
             
-            // Smoothly ease downward right into details
+            // Smoothly scroll down to details
             setTimeout(() => {
                 document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
             }, 100);
@@ -175,8 +173,11 @@
             const musicBtn = document.getElementById('musicBtn');
             
             if (audio.paused) {
-                audio.play();
-                if(musicBtn) musicBtn.classList.add('playing');
+                audio.play().then(() => {
+                    if(musicBtn) musicBtn.classList.add('playing');
+                }).catch(error => {
+                    console.log("Playback failed: ", error);
+                });
             } else {
                 audio.pause();
                 if(musicBtn) musicBtn.classList.remove('playing');
