@@ -31,14 +31,24 @@ body {
 @media screen and (max-width: 500px) 
 {
     .mobile-container {
-        width: 120%;
+        width: 100%;
         height: 100vh;
-        max-height: 920px; /* Allows the container to take full height on smaller screens */
-        font-size: 30%; /* Adjusts font size for better readability on smaller devices */
+        max-height: none; /* Allows the container to take full height on smaller screens */
+        font-size: 50%; /* Adjusts font size for better readability on smaller devices */
     }
 
-
+    .screen {
+        padding: 30px 15px; /* Reduces padding for smaller screens */
+        width: 100%; /* Ensures the screen takes full width */
+        height: 100vh; /* Allows the screen to adjust height based on content */
+        max-height: none; /* Prevents overflow on smaller screens */
+        font-size: 50%;
+        monogram {
+            size: 80%; /* Adjusts monogram size for smaller screens */
+        }
+    }
     
+
 }
 
 /* Modern minimalist scrollbar */
