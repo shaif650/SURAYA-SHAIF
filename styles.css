@@ -26,10 +26,10 @@ body {
 
 .mobile-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 1080px;
     /* Changed height to dvh (dynamic viewport height) to fix Chrome Mobile's address bar jumping */
     height: 100dvh; 
-    max-height: 920px;
+    max-height: 1920px;
     background-image: url('img/bgfull.png');
     background-size: cover;
     background-position: center; /* Ensures background looks good at any scale */
