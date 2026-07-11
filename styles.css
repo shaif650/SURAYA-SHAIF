@@ -15,7 +15,7 @@ body {
 
 .mobile-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 700px;
     height: 100vh;
     max-height: 920px;
     background-image: url('img/bgfull.png');
