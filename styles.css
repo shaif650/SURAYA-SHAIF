@@ -489,7 +489,7 @@ body.revealed .bottom-nav {
 
 .swipe-indicators {
     position: absolute;
-    bottom: 500px;
+    bottom: 300px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
