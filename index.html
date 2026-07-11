@@ -32,6 +32,43 @@
             <button onclick="openInvitation()" class="btn" style="cursor: pointer; border: none; text-decoration: none; display: inline-block;">Buka Undangan</button>
         </section>
         
+       <!-- Swipe Container Wrapper -->
+<div class="swipe-viewport">
+    <div id="swipeTrack" class="swipe-track">
+        
+        <!-- Screen 1: Undangan Bersanding -->
+        <section class="screen" id="undaganS">
+            <h2 class="title">Undangan Bersanding</h2>
+            <p class="verse2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+            <p class="pname">Normizah Binti Mohamed Nor<br>&<br>Keluarga</p>
+            <p class="invite-text">Dengan penuh kesyukuran menjemput<br>Dato / Datin / Tuan / Puan / Encik / Cik</p> 
+            <p class="phrase-text">Ke majlis perkahwinan puteri kami</p>
+            <h1 class="pname">Nur Halida Suraya<br>Binti Zulkifli</h1>
+            <p class="phrase-text">dengan pilihan hatinya</p>
+            <h1 class="pname">Mohamad Shaifullah<br>Bin Ahmad Sharafae</h1>
+        </section>
+
+        <!-- Screen 2: Undangan Bertandang -->
+        <section class="screen" id="undagant">
+            <h2 class="title">Undangan Bertandang</h2>
+            <p class="verse2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+            <p class="pname">Ahmad Sharafae Bin Jafri<br>&<br>Raja Jamelah Binti Raja Daud</p>
+            <p class="invite-text">Dengan penuh kesyukuran menjemput<br>Dato / Datin / Tuan / Puan / Encik / Cik</p> 
+            <p class="phrase-text">Ke majlis perkahwinan putera kami</p>
+            <h1 class="pname">Mohamad Shaifullah<br>Bin Ahmad Sharafae</h1>
+            <p class="phrase-text">dengan pilihan hatinya</p>
+            <h1 class="pname">Nur Halida Suraya<br>Binti Zulkifli</h1>
+        </section>
+
+    </div>
+
+    <!-- Bottom Circle Indicators -->
+    <div class="swipe-indicators">
+        <span class="dot active" onclick="goToScreen(0)"></span>
+        <span class="dot" onclick="goToScreen(1)"></span>
+    </div>
+</div>
+
         <!-- Details Section -->
         <section class="screen" id="details">
             <h2 class="title">Butiran Majlis</h2>
@@ -63,14 +100,16 @@
 
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
-        <a href="#home" class="nav-item">
+        <a href="#swipeTrack" class="nav-item">
             <span class="nav-icon">🏠</span>
             <span>Utama</span>
         </a>
-        <a href="#rsvp" class="nav-item">
-            <span class="nav-icon">✍️</span>
-            <span>RSVP</span>
-        </a> 
+
+        <a href="#details" class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span>Majlis</span>
+        </a>
+ 
         
         <!-- Music Toggle Button -->
         <div class="nav-item" onclick="toggleMusic()" style="cursor: pointer;">
@@ -78,9 +117,9 @@
             <span style="font-size: 11px; margin-top: 2px;">Muzik</span>
         </div>
         
-        <a href="#details" class="nav-item">
-            <span class="nav-icon">📅</span>
-            <span>Majlis</span>
+        <a href="#rsvp" class="nav-item">
+            <span class="nav-icon">✍️</span>
+            <span>RSVP</span>
         </a>
 
         <a href="javascript:void(0)" class="nav-item" onclick="openContactModal()">
@@ -109,6 +148,57 @@
     </div>
 
     <script>
+
+        // Swipe System Configuration
+let currentScreenIdx = 0;
+let swipeStartX = 0;
+let swipeEndX = 0;
+
+const swipeViewport = document.querySelector('.swipe-viewport');
+const swipeTrack = document.getElementById('swipeTrack');
+const dots = document.querySelectorAll('.swipe-indicators .dot');
+
+// Capture Touch Start
+swipeViewport.addEventListener('touchstart', e => {
+    swipeStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+// Capture Touch End & Evaluate
+swipeViewport.addEventListener('touchend', e => {
+    swipeEndX = e.changedTouches[0].screenX;
+    handleScreenSwipe();
+}, { passive: true });
+
+function handleScreenSwipe() {
+    const threshold = 60; // minimum distance in pixels to trigger slide
+    
+    // Swipe Left -> Go to next screen
+    if (swipeStartX - swipeEndX > threshold) {
+        if (currentScreenIdx < 1) goToScreen(currentScreenIdx + 1);
+    }
+    
+    // Swipe Right -> Go to previous screen
+    if (swipeEndX - swipeStartX > threshold) {
+        if (currentScreenIdx > 0) goToScreen(currentScreenIdx - 1);
+    }
+}
+
+// Global Screen Navigator Function
+function goToScreen(index) {
+    currentScreenIdx = index;
+    
+    // Slide the track via percentage offsets
+    swipeTrack.style.transform = `translateX(-${index * 50}%)`;
+    
+    // Toggle active dot layout states
+    dots.forEach((dot, idx) => {
+        if (idx === index) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
         // 1. Unified Contact Data Objects
         const globalData = {
             contacts1: [
@@ -163,7 +253,7 @@
             
             // Smoothly scroll down to details
             setTimeout(() => {
-                document.getElementById('details').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('swipeTrack').scrollIntoView({ behavior: 'smooth' });
             }, 100);
         }
 
