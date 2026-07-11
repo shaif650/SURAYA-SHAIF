@@ -1,3 +1,6 @@
+/* ==========================================================================
+   1. GLOBAL RESET & MOBILE TOUCH DEFAULTS
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,52 +8,29 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* target the button, any links, or custom clickable items */
-.btn, .nav-icon, .btn-google, .btn-waze,.close-btn, .a, .contact-actions, .nav-item, .tab-btn, .tab-btn.active,.toggle-btn,.toggle-btn.active,
-input[type="submit"],
-[role="button"] {
-  /* This completely deletes the mobile touch highlight */
-  -webkit-tap-highlight-color: transparent !important;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
-  
-  /* Prevents mobile browsers from opening a pop-up menu if you hold the button down */
-  -webkit-touch-callout: none !important; 
+.btn, .nav-icon, .btn-google, .btn-waze, .close-btn, .a, .contact-actions, 
+.nav-item, .tab-btn, .toggle-btn, input[type="submit"], [role="button"] {
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    -webkit-touch-callout: none !important; 
 }
 
-  body.locked {
-            overflow: hidden !important;
-        }
-        
-        body.locked .mobile-container {
-            overflow-y: hidden !important;
-        }
-
-        /* 2. Hide the details section completely at start */
-        #details {
-            display: none;
-        }
-        
-        /* 3. Hide bottom navigation with smooth slide-up animation */
-        .bottom-nav {
-            transform: translateY(150%);
-            transition: transform 0.6s ease-in-out;
-        }
-        
-        /* Active state class to reveal elements smoothly */
-        body.revealed #details {
-            display: block; /* Shows section */
-        }
-        
-        body.revealed .bottom-nav {
-            transform: translateY(0); /* Slides nav up into view */
-        }
-
+/* ==========================================================================
+   2. BODY & LAYOUT CONTAINERS
+   ========================================================================== */
 body {
-    background-color: #e2e8f0;    /* Backdrop frame color for desktop views */
+    background-color: #e2e8f0;    
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+body.locked {
+    overflow: hidden !important;
+}
+body.locked .mobile-container {
+    overflow-y: hidden !important;
 }
 
 .mobile-container {
@@ -59,39 +39,13 @@ body {
     height: 100vh;
     max-height: 920px;
     background-image: url('img/bgfull.png');
-    
-    /* CHANGE THIS: Forces the image to squeeze perfectly into your dimensions */
     background-size: 100% 100%; 
-    
     background-position: center; 
     background-repeat: no-repeat; 
     overflow-y: auto;
     position: relative;
     box-shadow: 0 12px 40px rgba(0,0,0,0.25);
     scroll-behavior: smooth;
-}
-
-@media screen and (max-width: 450px) 
-{
-    .mobile-container {
-        width: 100%;
-        height: 100vh;
-        max-height: none; /* Allows the container to take full height on smaller screens */
-        font-size: 50%; /* Adjusts font size for better readability on smaller devices */
-    }
-
-    .screen {
-        padding: 30px 15px; /* Reduces padding for smaller screens */
-        width: 100%; /* Ensures the screen takes full width */
-        height: 100vh; /* Allows the screen to adjust height based on content */
-        max-height: none; /* Prevents overflow on smaller screens */
-        font-size: 10%;
-        monogram {
-            size: 80%; /* Adjusts monogram size for smaller screens */
-        }
-    }
-    
-
 }
 
 /* Modern minimalist scrollbar */
@@ -103,6 +57,9 @@ body {
     border-radius: 4px;
 }
 
+/* ==========================================================================
+   3. SCREEN & ANIMATION CONTROLS
+   ========================================================================== */
 .screen {
     min-height: 100%;
     width: 100%;
@@ -115,61 +72,101 @@ body {
     position: relative;
 }
 
+#undagan #details {
+    display: none;
+}
 
-.monogram{
+.bottom-nav {
+    border-radius: 30px 30px 0 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;          
+    max-width: 450px;       
+    height: 80px;
+    background-color: #e2e8f0;
+    opacity: 0.85;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    transform: translateY(150%);
+    transition: transform 0.6s ease-in-out;
+}
+
+body.revealed #undangan {
+    display: block; 
+}
+body.revealed .bottom-nav {
+    transform: translateY(0); 
+}
+
+/* ==========================================================================
+   4. TYPOGRAPHY & ELEMENTS
+   ========================================================================== */
+.monogram {
     width: 160px;
     height: 160px;
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
-
 .monogram img {
-        max-width: 100%;
-        height: auto;
-    }
+    max-width: 100%;
+    height: auto;
+}
 
 .title {
     font-size: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #292959;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.verse {
+/* Combined Verse 1, Verse 2, and Text-Ver Shared Styles */
+.verse, .verse2, .text-ver {
     font-style: italic;
+    color: #292959;
+    max-width: 85%;
+    line-height: 1.4;
+}
+.verse, .verse2 {
     font-size: 20px;
-    color: #292959;
     margin-bottom: 10px;
-    max-width: 85%;
-    line-height: 1.4;
 }
-
+.verse2 {
+    margin-top: 10px;
+}
 .text-ver {
-    font-style: italic;
     font-size: 15px;
-    color: #292959;
     margin-bottom: 15px;
-    max-width: 85%;
-    line-height: 1.4;
 }
 
-.names {
+/* Script Typography */
+.names, .pname {
     font-family: "Alex Brush", cursive;
     font-weight: 900;
     font-style: normal;
-    font-size: 39px;
     color: #292959;
+}
+.names {
+    font-size: 39px;
     margin-bottom: 25px;
 }
+.pname {
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
+/* ==========================================================================
+   5. BUTTONS, TOGGLES & CARDS
+   ========================================================================== */
 .btn {
     display: inline-flex;
     justify-content: center; 
-    align-items: center;     
+    align-items: center;    
     text-align: center;      
-    
     background-color: #292959;
     color: white;
     border: none;
@@ -182,7 +179,6 @@ body {
     transition: background-color 0.3s ease;
     text-decoration: none;
 }
-
 .btn:hover {
     background-color: #1a337e;
 }
@@ -208,252 +204,171 @@ body {
     background: transparent;
     color: #292959;
 }
-
 .toggle-btn.active {
     background: #292959;
     color: #ffffff;
 }
 
 .countdown-grid {
-            display: flex;
-            gap: 10px;
-            margin: 20px 0 35px 0;
-            justify-content: center;
-        }
-
-        .countdown-box {
-            background: rgba(204, 216, 231, 0.5);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            padding: 10px;
-            border-radius: 8px;
-            min-width: 65px;
-            border-bottom: 3px solid #292959;
-        }
-
-        .countdown-num {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #292959;
-        }
-
-        .countdown-label {
-            font-size: 0.7rem;
-            color: #666666;
-            text-transform: uppercase;
-        }
-
-        /* Details Card Layout */
-        .info-card {
-            background-color: rgba(210, 221, 236, 0.75);
-            border-radius: 16px;
-            padding: 24px;
-            width: 100%;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            text-align: center;
-           
-        }
-
-        .info-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #202020;
-            margin-bottom: 4px;
-        }
-
-        .info-value {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #292959;
-            margin-bottom: 16px;
-        }
-
-        .info-value:last-child {
-            margin-bottom: 0;
-        }
-
-/* 1. Add this style to wrap the two buttons together */
-.map-button-group {
     display: flex;
-    justify-content: center; /* Centers the buttons horizontally */
-    gap: 12px;               /* Controls the spacing between the buttons */
-    width: 100%;
-    margin: 15px 0;          /* Adds space above and below the row */
+    gap: 10px;
+    margin: 20px 0 35px 0;
+    justify-content: center;
+}
+.countdown-box {
+    background: rgba(204, 216, 231, 0.5);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 65px;
+    border-bottom: 3px solid #292959;
+}
+.countdown-num {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #292959;
+}
+.countdown-label {
+    font-size: 0.7rem;
+    color: #666666;
+    text-transform: uppercase;
 }
 
-/* 2. Your updated button style (fixed for side-by-side layouts) */
+.info-card {
+    background-color: rgba(210, 221, 236, 0.75);
+    border-radius: 16px;
+    padding: 24px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    text-align: center;
+}
+.info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #202020;
+    margin-bottom: 4px;
+}
+.info-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #292959;
+    margin-bottom: 16px;
+}
+.info-value:last-child {
+    margin-bottom: 0;
+}
+
+/* Map Location Settings */
+.map-button-group {
+    display: flex;
+    justify-content: center; 
+    gap: 12px;               
+    width: 100%;
+    margin: 15px 0;          
+}
+
 .map-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    
-    /* Removed the hardcoded width and absolute margins so they don't break the row */
-    flex: 1;                 /* Forces both buttons to have an equal, flexible width */
-    max-width: 60px;        /* Prevents buttons from getting too wide on tablet screens */
+    flex: 1;                 
+    max-width: 60px;        
     height: 60px;
     padding: 0 10px;
     border-radius: 8px;
     text-decoration: none;
-    
-    /* Clean, highly readable text settings for small buttons */
     font-weight: 600;        
     font-size: 11px;         
     transition: background-color 0.3s ease, transform 0.1s ease;
 }
-
 .map-btn:active {
     transform: scale(0.96);
 }
-
-.btn-google { background: #292959; color: white; }
-.btn-waze { background: #292959; color: white; }
-
-     
-
-        /* Contact Section Grid */
-        .contact-divider {
-            width: 8%;
-            height: 1px;
-            background: rgba(255,255,255,0.15);
-            margin: 0px 0;
-        }
-
-        .contact-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 12px;
-            background: rgba(255,255,255,0.05);
-            padding: 8px 12px;
-            border-radius: 6px;
-        }
-
-        .contact-name {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .contact-actions a {
-            color: #202059;
-            text-decoration: none;
-            font-size: 0.8rem;
-            margin-left: 10px;
-            border: 1px solid rgba(138, 119, 56, 0.4);
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 20px;
-            font-size: 1.2rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-     .bottom-nav {
-    border-radius: 30px 30px 0 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;            /* Fills the width of the viewport/parent */
-    max-width: 450px;       /* Matches your .mobile-container exactly */
-    height: 80px;
-    background-color: #e2e8f0;
-    opacity: 0.85;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+.btn-google, .btn-waze { 
+    background: #292959; 
+    color: white; 
 }
 
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: #64748b;
-            font-size: 11px;
-            cursor: pointer;
-        }
+/* ==========================================================================
+   6. NAVIGATION, MODALS & INTERACTIVES
+   ========================================================================== */
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #64748b;
+    font-size: 11px;
+    cursor: pointer;
+}
+.nav-item.active, .nav-item:hover {
+    color: #0B1B4F;
+}
+.nav-icon {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
 
-        .nav-item.active, .nav-item:hover {
-            color: #0B1B4F;
-        }
+.music-toggle {
+    width: 80px;
+    height: 80px;
+    background-image: url('img/g35.png');
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: -20px;
+    box-shadow: 0 4px 8px rgba(11, 27, 79, 1);
+    border: 4px solid #e2e8f0;
+}
 
-        .nav-icon {
-            font-size: 20px;
-            margin-bottom: 2px;
-        }
-
- .music-toggle {
-            
-            width: 80px;
-            height: 80px;
-            background-image: url('img/g35.png');
-            background-size: 110%;
-            /* Replace with your image link or SVG path */
-            background-position: center;
-            background-repeat: no-repeat;
-           
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            margin-top: -20px;
-            box-shadow: 0 4px 8px rgba(11, 27, 79, 1);
-            border: 4px solid #e2e8f0;
-        }
-
-
-/* Modal Overlay Background */
 .modal-overlay {
     display: none;
     position: fixed;
-    width: 450px; height: 100%;
-    background: 		rgba(226, 232, 240, 0.25);
+    width: 450px; 
+    height: 100%;
+    background: rgba(226, 232, 240, 0.25);
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(2px); /* Optional: adds a subtle blur effect to the background */
+    backdrop-filter: blur(2px); 
 }
 
-/* Modal Box */
 .modal-content {
     background: #d4d9e0;
     opacity: 0.95;
-    width: 90%;
+    width: 350px;
     max-width: 350px;
-    border-radius: 25px; /* Keeps your nice rounded corners */
+    border-radius: 25px; 
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(41, 41, 89, 0.15); /* Tinted shadow to match theme */
-    width: 350px;
+    box-shadow: 0 10px 30px rgba(41, 41, 89, 0.15); 
 }
 
 .close-btn {
     position: absolute;
-    top: -4.5px; right: 9px;
-    background: transparent; border: none;
-    font-size: 24px; cursor: pointer; 
+    top: -4.5px; 
+    right: 9px;
+    background: transparent; 
+    border: none;
+    font-size: 24px; 
+    cursor: pointer; 
     z-index: 10;
-    color: #292959; /* Matching Deep Navy */
+    color: #292959; 
 }
 
-/* Tabs Styling - Transformed to mimic the "Bersanding/Bertandang" Pill Style */
 .modal-tabs {
     display: flex;
-    background: #f2f6fc; /* Soft Ice Blue container background from image */
-    margin: 20px 15px 0px 15px; /* Floating pill container style */
+    background: #f2f6fc; 
+    margin: 20px 15px 0px 15px; 
     border-radius: 30px;
     padding: 4px;
 }
@@ -462,49 +377,69 @@ body {
     flex: 1; 
     padding: 10px 15px;
     border: none; 
-    background: transparent; /* Seamless blend */
-    color: #292959; /* Deep Navy text */
+    background: transparent; 
+    color: #292959; 
     font-weight: bold; 
     font-size: 14px;
     cursor: pointer;
-    border-radius: 25px; /* Makes the individual button active state a pill */
+    border-radius: 25px; 
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .tab-btn.active {
-    background: #292959; /* Deep Navy active color */
-    color: #f2f6fc; /* White text when selected like "Bersanding" */
+    background: #292959; 
+    color: #f2f6fc; 
 }
 
-/* Horizontal Slider Mechanism */
-.slider-viewport {
+.slider-viewport, .swipe-viewport {
+    position: relative;
     width: 100%;
     overflow: hidden;
 }
-.slider-track {
+.slider-track, .swipe-track {
     display: flex;
     width: 200%; 
+}
+.slider-track {
     transition: transform 0.3s ease-out;
 }
+.swipe-track {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
 .slide-page {
     width: 50%; 
     padding: 15px;
     box-sizing: border-box;
 }
+.swipe-track .screen {
+    width: 50%; 
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
 
-/* Contact Rows - Styled beautifully with soft background framing */
+/* Contact Rows Configuration */
+.contact-divider {
+    width: 8%;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 0px 0;
+}
+
 .contact-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #292959;
-    background: #f2f6fc; /* Clean, subtle Ice Blue tint for list rows */
+    background: #f2f6fc; 
     padding: 12px 15px;
-    margin-bottom: 8px; /* Adds space between individual contact blocks */
-    border-radius: 25px; /* Clean rounded row boxes */
+    margin-bottom: 8px; 
+    border-radius: 25px; 
     box-shadow: 0 2px 6px rgba(41, 41, 89, 0.04);
 }
-.contact-row:last-child { margin-bottom: 0; }
+.contact-row:last-child { 
+    margin-bottom: 0; 
+}
 
 .contact-name { 
     font-weight: 600;
@@ -513,20 +448,17 @@ body {
 
 .contact-actions {
     display: flex;
-    gap: 6px; /* Uniform spacing between buttons */
+    gap: 6px; 
 }
-
 .contact-actions a {
     text-decoration: none;
     padding: 6px 12px;
-    border-radius: 20px; /* Matching pill buttons */
+    border-radius: 20px; 
     font-size: 13px;
     font-weight: 500;
     display: inline-block;
     transition: background 0.2s;
 }
-
-/* Call Button - Soft Slate Blue tone */
 .contact-actions a[href^="tel"] { 
     background: #e2e8f0; 
     color: #292959; 
@@ -534,8 +466,6 @@ body {
 .contact-actions a[href^="tel"]:hover { 
     background: #cbd5e1; 
 }
-
-/* WhatsApp Button - Stays true to WhatsApp brand branding but with rounded structure */
 .contact-actions a[href^="https://wa.me"] { 
     background: #25D366; 
     color: #ffffff; 
@@ -544,4 +474,70 @@ body {
     background: #20ba5a; 
 }
 
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    font-size: 1.2rem;
+    animation: bounce 2s infinite;
+}
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.swipe-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+.swipe-indicators .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.swipe-indicators .dot.active {
+    background-color: #292959; 
+    transform: scale(1.2); /* Corrected syntax error from scale(0.5.1) */
+}
+
+/* ==========================================================================
+   7. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media screen and (max-width: 450px) {
+    .mobile-container {
+        width: 100%;
+        height: 100vh;
+        max-height: none; 
+        font-size: 50%; 
+    }
+
+    .screen {
+        box-sizing: border-box; 
+        width: 100%; 
+        height: 90vh; 
+        max-height: 920px; 
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 30px 15px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;     
+        text-align: center;      
+        font-size: 100%; 
+    }
+
+    .screen .monogram {
+        width: 80%; 
+        margin: 0 auto;
+    }
+}
