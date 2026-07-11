@@ -17,6 +17,34 @@ input[type="submit"],
   -webkit-touch-callout: none !important; 
 }
 
+  body.locked {
+            overflow: hidden !important;
+        }
+        
+        body.locked .mobile-container {
+            overflow-y: hidden !important;
+        }
+
+        /* 2. Hide the details section completely at start */
+        #details {
+            display: none;
+        }
+        
+        /* 3. Hide bottom navigation with smooth slide-up animation */
+        .bottom-nav {
+            transform: translateY(150%);
+            transition: transform 0.6s ease-in-out;
+        }
+        
+        /* Active state class to reveal elements smoothly */
+        body.revealed #details {
+            display: block; /* Shows section */
+        }
+        
+        body.revealed .bottom-nav {
+            transform: translateY(0); /* Slides nav up into view */
+        }
+
 body {
     background-color: #e2e8f0;    /* Backdrop frame color for desktop views */
     display: flex;
@@ -190,6 +218,7 @@ body {
             display: flex;
             gap: 10px;
             margin: 20px 0 35px 0;
+            justify-content: center;
         }
 
         .countdown-box {
