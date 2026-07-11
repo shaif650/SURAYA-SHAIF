@@ -20,17 +20,24 @@
     <div class="mobile-container">
         
         <!-- Welcome Screen -->
-        <section class="screen" id="home">
-            <h2 class="title">Undangan Raja Sehari</h2>
-            <div class="monogram">
-                <img src="img/initial logo.png" alt="Initial Logo">
-            </div>
-            <p class="verse">"وَخَلَقۡنَٰكُمۡ أَزۡوَٰجٗا"</p>
-            <p class="text-ver">"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
-            <h1 class="names">Shaifullah Ahmad<br>&<br>Suraya Zulkifli</h1>
-            
-            <button onclick="openInvitation()" class="btn" style="cursor: pointer; border: none; text-decoration: none; display: inline-block;">Buka Undangan</button>
-        </section>
+     <section class="screen" id="home">
+    <!-- --delay: 1 starts immediately -->
+    <h2 class="title fade-in-up" style="--delay: 1;">Undangan Raja Sehari</h2>
+    
+    <!-- --delay: 2 triggers next, and so on -->
+    <div class="monogram fade-in-up" style="--delay: 2;">
+        <img src="img/initial logo.png" alt="Initial Logo">
+    </div>
+    
+    <p class="verse fade-in-up" style="--delay: 3;">"وَخَلَقۡنَٰكُمۡ أَزۡوَٰجٗا"</p>
+    
+    <p class="text-ver fade-in-up" style="--delay: 4;">"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
+    
+    <h1 class="names fade-in-up" style="--delay: 5;">Shaifullah Ahmad<br>&<br>Suraya Zulkifli</h1>
+    
+    <!-- Redundant inline styling removed since your .btn class handles it -->
+    <button onclick="openInvitation()" class="btn fade-in-up" style="--delay: 6;">Buka Undangan</button>
+</section>
         
        <!-- Swipe Container Wrapper -->
 <div class="swipe-viewport">
