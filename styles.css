@@ -6,7 +6,7 @@
 }
 
 /* target the button, any links, or custom clickable items */
-.btn, .map-button-group, .btn-google, .btn-waze,.close-btn, .a,
+.btn, .nav-icon, .btn-google, .btn-waze,.close-btn, .a, .contact-actions, .nav-item, .tab-btn, .tab-btn.active,.toggle-btn,.toggle-btn.active,
 input[type="submit"],
 [role="button"] {
   /* This completely deletes the mobile touch highlight */
