@@ -917,8 +917,5 @@ body {
     background: #20ba5a; 
 }
 
-@media (max-width: 700px) {
- html{
-    font-size: 80%;
-  }
+
 }
