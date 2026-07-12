@@ -11,7 +11,7 @@
 </head>
 <body class="locked"> <!-- Starts with locked scroll behavior -->
 
-    <!-- Single, unified audio element with correct fallback -->
+    <!-- Single, unified audio element -->
     <audio id="weddingMusic" loop>
         <source src="mp3/song 1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -20,61 +20,55 @@
     <div class="mobile-container">
         
         <!-- Welcome Screen -->
-     <section class="screen" id="home">
-    <!-- --delay: 1 starts immediately -->
-    <h2 class="title fade-in-up" style="--delay: 1;">Undangan Raja Sehari</h2>
-    
-    <!-- --delay: 2 triggers next, and so on -->
-    <div class="monogram fade-in-up" style="--delay: 2;">
-        <img src="img/initial logo.png" alt="Initial Logo">
-    </div>
-    
-    <p class="verse fade-in-up" style="--delay: 3;">"وَخَلَقۡنَٰكُمۡ أَزۡوَٰجٗا"</p>
-    
-    <p class="text-ver fade-in-up" style="--delay: 4;">"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
-    
-    <h1 class="names fade-in-up" style="--delay: 5;">Shaifullah Ahmad<br>&<br>Suraya Zulkifli</h1>
-    
-    <!-- Redundant inline styling removed since your .btn class handles it -->
-    <button onclick="openInvitation()" class="btn fade-in-up" style="--delay: 6;">Buka Undangan</button>
-</section>
-        
-       <!-- Swipe Container Wrapper -->
-<div class="swipe-viewport">
-    <div id="swipeTrack" class="swipe-track">
-        
-        <!-- Screen 1: Undangan Bersanding -->
-        <section class="screen" id="undaganS">
-            <h2 class="title">Undangan Bersanding</h2>
-            <p class="verse2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-            <p class="pname">Normizah Binti Mohamed Nor<br>&<br>Keluarga</p>
-            <p class="invite-text">Dengan penuh kesyukuran menjemput<br>Dato / Datin / Tuan / Puan / Encik / Cik</p> 
-            <p class="phrase-text">Ke majlis perkahwinan puteri kami</p>
-            <h1 class="pname">Nur Halida Suraya<br>Binti Zulkifli</h1>
-            <p class="phrase-text">dengan pilihan hatinya</p>
-            <h1 class="pname">Mohamad Shaifullah<br>Bin Ahmad Sharafae</h1>
+        <section class="screen" id="home">
+            <h2 class="title fade-in-up" style="--delay: 1;">Undangan Raja Sehari</h2>
+            
+            <div class="monogram fade-in-up" style="--delay: 2;">
+                <img src="img/initial logo.png" alt="Initial Logo">
+            </div>
+            
+            <p class="verse fade-in-up" style="--delay: 3;">"وَخَلَقۡنَٰكُمۡ أَزۡوَٰجٗا"</p>
+            <p class="text-ver fade-in-up" style="--delay: 4;">"And We created you in pairs"<br>-Surah An-Naba 78:8-</p>
+            
+            <h1 class="names fade-in-up" style="--delay: 5;">Shaifullah Ahmad<br>&<br>Suraya Zulkifli</h1>
+            <button onclick="openInvitation()" class="btn fade-in-up" style="--delay: 6;">Buka Undangan</button>
         </section>
+        
+        <!-- Swipe Container Wrapper -->
+        <div class="swipe-viewport">
+            <div id="swipeTrack" class="swipe-track">
+                
+                <!-- Screen 1: Undangan Bersanding -->
+                <section class="screen" id="undaganS">
+                    <h2 class="title">Undangan Bersanding</h2>
+                    <p class="verse2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                    <p class="pname">Normizah Binti Mohamed Nor<br>&<br>Keluarga</p>
+                    <p class="invite-text">Dengan penuh kesyukuran menjemput<br>Dato / Datin / Tuan / Puan / Encik / Cik</p> 
+                    <p class="phrase-text">Ke majlis perkahwinan puteri kami</p>
+                    <h1 class="pname">Nur Halida Suraya<br>Binti Zulkifli</h1>
+                    <p class="phrase-text">dengan pilihan hatinya</p>
+                    <h1 class="pname">Mohamad Shaifullah<br>Bin Ahmad Sharafae</h1>
+                </section>
 
-        <!-- Screen 2: Undangan Bertandang -->
-        <section class="screen" id="undagant">
-            <h2 class="title">Undangan Bertandang</h2>
-            <p class="verse2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-            <p class="pname">Ahmad Sharafae Bin Jafri<br>&<br>Raja Jamelah Binti Raja Daud</p>
-            <p class="invite-text">Dengan penuh kesyukuran menjemput<br>Dato / Datin / Tuan / Puan / Encik / Cik</p> 
-            <p class="phrase-text">Ke majlis perkahwinan putera kami</p>
-            <h1 class="pname">Mohamad Shaifullah<br>Bin Ahmad Sharafae</h1>
-            <p class="phrase-text">dengan pilihan hatinya</p>
-            <h1 class="pname">Nur Halida Suraya<br>Binti Zulkifli</h1>
-        </section>
+                <!-- Screen 2: Undangan Bertandang -->
+                <section class="screen" id="undagant">
+                    <h2 class="title">Undangan Bertandang</h2>
+                    <p class="verse2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                    <p class="pname">Ahmad Sharafae Bin Jafri<br>&<br>Raja Jamelah Binti Raja Daud</p>
+                    <p class="invite-text">Dengan penuh kesyukuran menjemput<br>Dato / Datin / Tuan / Puan / Encik / Cik</p> 
+                    <p class="phrase-text">Ke majlis perkahwinan putera kami</p>
+                    <h1 class="pname">Mohamad Shaifullah<br>Bin Ahmad Sharafae</h1>
+                    <p class="phrase-text">dengan pilihan hatinya</p>
+                    <h1 class="pname">Nur Halida Suraya<br>Binti Zulkifli</h1>
+                </section>
+            </div>
 
-    </div>
-
-    <!-- Bottom Circle Indicators -->
-    <div class="swipe-indicators">
-        <span class="dot active" onclick="goToScreen(0)"></span>
-        <span class="dot" onclick="goToScreen(1)"></span>
-    </div>
-</div>
+            <!-- Bottom Circle Indicators -->
+            <div class="swipe-indicators">
+                <span class="dot active" onclick="goToScreen(0)"></span>
+                <span class="dot" onclick="goToScreen(1)"></span>
+            </div>
+        </div>
 
         <!-- Details Section -->
         <section class="screen" id="details">
@@ -93,9 +87,7 @@
             </div>
 
             <!-- Dynamic Info Cards -->
-            <div class="info-card" id="event-info">
-                <!-- Content injected programmatically by JavaScript -->
-            </div>
+            <div class="info-card" id="event-info"></div>
         
             <div class="map-button-group">
                 <a href="#" id="go-maps" target="_blank" class="map-btn btn-google">🚗 G-MAPS</a>
@@ -103,58 +95,55 @@
             </div>
         </section>
         
+        <!-- RSVP Section -->
         <section class="screen2" id="rsvp">
-           <div class="tabs">
-    <button class="tab-btn active" onclick="switchPage(0)">Bersanding</button>
-    <button class="tab-btn" onclick="switchPage(1)">Bertandang</button>
-  </div>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchPage(0)">Bersanding</button>
+                <button class="tab-btn" onclick="switchPage(1)">Bertandang</button>
+            </div>
 
-  <!-- Swipeable Area -->
-  <div class="slider-viewport" id="sliderViewport">
-    <div class="slider-track" id="sliderTrack">
-      
-      <!-- PAGE 1: BERSANDING -->
-      <div class="form-page">
-        <h2>RSVP Majlis Bersanding</h2>
-        <form id="bersandingForm">
-          <input type="hidden" name="formId" value="bersandingForm">  
-          <div class="form-group">
-            <label for="nameBersanding">Nama Tetamu:</label>
-            <input type="text" id="nameBersanding" name="name" required placeholder="Nama penuh anda">
-          </div>
-          <div class="form-group">
-            <label for="paxBersanding">Pek:</label>
-            <input type="number" id="paxBersanding" name="pax" min="1" required placeholder="Jumlah kehadiran">
-          </div>
-          <button type="submit" class="submit-btn">Sahkan Kehadiran</button>
-        </form>
-        <p class="hint">← Swipe left for Bertandang RSVP →</p>
-      </div>
+            <!-- Swipeable Area -->
+            <div class="slider-viewport" id="sliderViewport">
+                <div class="slider-track" id="sliderTrack">
+                  
+                    <!-- PAGE 1: BERSANDING -->
+                    <div class="form-page">
+                        <h2>RSVP Majlis Bersanding</h2>
+                        <form id="bersandingForm">
+                            <input type="hidden" name="formId" value="bersandingForm">  
+                            <div class="form-group">
+                                <input type="text" id="nameBersanding" name="name" required placeholder="Nama">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="paxBersanding" name="pax" min="1" required placeholder="Jumlah kehadiran">
+                            </div>
+                            <button type="submit" class="submit-btn">Sahkan Kehadiran</button>
+                        </form>
+                    </div>
 
-      <!-- PAGE 2: BERTANDANG -->
-      <div class="form-page">
-        <h2>RSVP Majlis Bertandang</h2>
-        <form id="bertandangForm">
-          <input type="hidden" name="formId" value="bertandangForm">
-          <div class="form-group">
-            <label for="nameBertandang">Nama Guest:</label>
-            <input type="text" id="nameBertandang" name="name" required placeholder="Nama penuh anda">
-          </div>
-          <div class="form-group">
-            <label for="paxBertandang">Pax:</label>
-            <input type="number" id="paxBertandang" name="pax" min="1" required placeholder="Jumlah kehadiran">
-          </div>
-          <button type="submit" class="submit-btn">Sahkan Kehadiran</button>
-        </form>
-        <p class="hint">← Swipe right for Bersanding RSVP →</p>
-      </div>
+                    <!-- PAGE 2: BERTANDANG -->
+                    <div class="form-page">
+                        <h2>RSVP Majlis Bertandang</h2>
+                        <form id="bertandangForm">
+                            <input type="hidden" name="formId" value="bertandangForm">
+                            <div class="form-group">
+                                <input type="text" id="nameBertandang" name="name" required placeholder="Nama">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" id="paxBertandang" name="pax" min="1" required placeholder="Jumlah kehadiran">
+                            </div>
+                            <button type="submit" class="submit-btn">Sahkan Kehadiran</button>
+                        </form>
+                    </div>
+                </div>
 
-    </div>
-  </div> 
-
-
+                <!-- Synchronized Bottom Indicators -->
+                <div class="swipe-indicators2">
+                    <span class="dot active" onclick="switchPage(0)"></span>
+                    <span class="dot" onclick="switchPage(1)"></span>
+                </div>
+            </div> 
         </section>
-
     </div>
 
     <!-- Bottom Navigation Bar -->
@@ -163,24 +152,18 @@
             <span class="nav-icon">🏠</span>
             <span>Utama</span>
         </a>
-
         <a href="#details" class="nav-item">
             <span class="nav-icon">📅</span>
             <span>Majlis</span>
         </a>
- 
-        
-        <!-- Music Toggle Button -->
         <div class="nav-item" onclick="toggleMusic()" style="cursor: pointer;">
             <div class="music-toggle" id="musicBtn"></div>
             <span style="font-size: 11px; margin-top: 2px;">Muzik</span>
         </div>
-        
         <a href="#rsvp" class="nav-item">
             <span class="nav-icon">✍️</span>
             <span>RSVP</span>
         </a>
-
         <a href="javascript:void(0)" class="nav-item" onclick="openContactModal()">
             <span class="nav-icon">📞</span>
             <span>Hubungi</span>
@@ -197,8 +180,8 @@
                 <button id="tab2" class="tab-btn" onclick="switchContactTab(1)">Pihak Lelaki</button>
             </div>
 
-            <div class="slider-viewport">
-                <div id="sliderTrack" class="slider-track">
+            <div class="slider-viewport" id="modalViewport">
+                <div id="modalSliderTrack" class="slider-track">
                     <div id="contact-list-1" class="slide-page"></div>
                     <div id="contact-list-2" class="slide-page"></div>
                 </div>
@@ -207,58 +190,25 @@
     </div>
 
     <script>
+        // --- 1. GLOBAL VARIANCE CONFIGURATIONS ---
+        let currentScreenIdx = 0;
+        let currentIndex = 0;
+        let currentTabIdx = 0;
+        let currentSide = 'perempuan';
+        let countdownInterval;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let swipeStartX = 0;
+        let swipeEndX = 0;
 
-        // Swipe System Configuration
-let currentScreenIdx = 0;
-let swipeStartX = 0;
-let swipeEndX = 0;
+        const swipeViewport = document.querySelector('.swipe-viewport');
+        const swipeTrack = document.getElementById('swipeTrack');
+        const dots = document.querySelectorAll('.swipe-indicators .dot');
+        const track = document.getElementById('sliderTrack');
+        const viewport = document.getElementById('sliderViewport');
+        const tabs = document.querySelectorAll('.tab-btn');
+        const rsvpDots = document.querySelectorAll('.swipe-indicators2 .dot');
 
-const swipeViewport = document.querySelector('.swipe-viewport');
-const swipeTrack = document.getElementById('swipeTrack');
-const dots = document.querySelectorAll('.swipe-indicators .dot');
-
-// Capture Touch Start
-swipeViewport.addEventListener('touchstart', e => {
-    swipeStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-// Capture Touch End & Evaluate
-swipeViewport.addEventListener('touchend', e => {
-    swipeEndX = e.changedTouches[0].screenX;
-    handleScreenSwipe();
-}, { passive: true });
-
-function handleScreenSwipe() {
-    const threshold = 60; // minimum distance in pixels to trigger slide
-    
-    // Swipe Left -> Go to next screen
-    if (swipeStartX - swipeEndX > threshold) {
-        if (currentScreenIdx < 1) goToScreen(currentScreenIdx + 1);
-    }
-    
-    // Swipe Right -> Go to previous screen
-    if (swipeEndX - swipeStartX > threshold) {
-        if (currentScreenIdx > 0) goToScreen(currentScreenIdx - 1);
-    }
-}
-
-// Global Screen Navigator Function
-function goToScreen(index) {
-    currentScreenIdx = index;
-    
-    // Slide the track via percentage offsets
-    swipeTrack.style.transform = `translateX(-${index * 50}%)`;
-    
-    // Toggle active dot layout states
-    dots.forEach((dot, idx) => {
-        if (idx === index) {
-            dot.classList.add('active');
-        } else {
-            dot.classList.remove('active');
-        }
-    });
-}
-        // 1. Unified Contact Data Objects
         const globalData = {
             contacts1: [
                 { name: "Pn. Normizah", phone: "0129543925" },
@@ -272,245 +222,6 @@ function goToScreen(index) {
             ]
         };
 
-        function generateContactList(contacts) {
-            let html = '';
-            contacts.forEach(c => {
-                const cleanPhone = c.phone.replace(/\s+/g, '');
-                const waPhone = cleanPhone.startsWith('6') ? cleanPhone : `6${cleanPhone}`;
-                
-                html += `
-                    <div class="contact-row">
-                        <span class="contact-name">${c.name}</span>
-                        <div class="contact-actions">
-                            <a href="tel:${cleanPhone}">Call</a>
-                            <a href="https://wa.me/${waPhone}" target="_blank">WhatsApp</a>
-                        </div>
-                    </div>
-                `;
-            });
-            return html;
-        }
-
-        document.getElementById('contact-list-1').innerHTML = generateContactList(globalData.contacts1);
-        document.getElementById('contact-list-2').innerHTML = generateContactList(globalData.contacts2);
-
-        // 2. Open Invitation Logic Engine
-        function openInvitation() {
-            const audio = document.getElementById('weddingMusic');
-            
-            // Remove locking constraints, display elements
-            document.body.classList.remove('locked');
-            document.body.classList.add('revealed');
-            
-            // Interaction explicitly bypasses mobile auto-play blocks
-            audio.play().then(() => {
-                const musicBtn = document.getElementById('musicBtn');
-                if(musicBtn) musicBtn.classList.add('playing'); 
-            }).catch(error => {
-                console.log("Audio playback interface block: ", error);
-            });
-            
-            // Smoothly scroll down to details
-            setTimeout(() => {
-                document.getElementById('swipeTrack').scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
-
-        // 3. Audio Controller Action Handles
-        function toggleMusic() {
-            const audio = document.getElementById('weddingMusic');
-            const musicBtn = document.getElementById('musicBtn');
-            
-            if (audio.paused) {
-                audio.play().then(() => {
-                    if(musicBtn) musicBtn.classList.add('playing');
-                }).catch(error => {
-                    console.log("Playback failed: ", error);
-                });
-            } else {
-                audio.pause();
-                if(musicBtn) musicBtn.classList.remove('playing');
-            }
-        }
-
-        // 4. Modal Interface State Controls
-        let currentTabIdx = 0;
-
-        function openContactModal() {
-            document.getElementById("contactModal").style.display = "flex";
-            switchContactTab(0); 
-        }
-
-        function closeContactModal(event) {
-            if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
-                document.getElementById("contactModal").style.display = "none";
-            }
-        }
-
-        function switchContactTab(index) {
-            currentTabIdx = index;
-            const track = document.getElementById("sliderTrack");
-            const t1 = document.getElementById("tab1");
-            const t2 = document.getElementById("tab2");
-
-            if (index === 0) {
-                track.style.transform = "translateX(0%)";
-                t1.classList.add("active");
-                t2.classList.remove("active");
-            } else {
-                track.style.transform = "translateX(-50%)"; 
-                t2.classList.add("active");
-                t1.classList.remove("active");
-            }
-        }
-
-        // 5. Native Touch Swipe Detection Logic
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const sliderViewport = document.querySelector('.slider-viewport');
-
-        sliderViewport.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        sliderViewport.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipeGesture();
-        }, { passive: true });
-
-        function handleSwipeGesture() {
-            const swipeThreshold = 50; 
-            if (touchStartX - touchEndX > swipeThreshold) {
-                switchContactTab(1);
-            }
-            if (touchEndX - touchStartX > swipeThreshold) {
-                switchContactTab(0);
-            }
-        }
-
-        
-
-        // ==========================================================================
-// RSVP
-
-// ==========================================================================
-
-const track = document.getElementById('sliderTrack');
-  const viewport = document.getElementById('sliderViewport');
-  const tabs = document.querySelectorAll('.tab-btn');
-  
-
-
-  // Function to move slider to specific page index (0 or 1)
-  function switchPage(index) {
-    currentIndex = index;
-    track.style.transform = `translateX(-${index * 50}%)`;
-    
-    // Update active tab styles
-    tabs.forEach((tab, idx) => {
-      if(idx === index) tab.classList.add('active');
-      else tab.classList.remove('active');
-    });
-  }
-
-
-viewport.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  viewport.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
-  }, { passive: true });
-
-  function handleGesture() {
-    const swipeDistance = touchStartX - touchEndX;
-    
-    // Swipe left (Next page)
-    if (swipeDistance > 50 && currentIndex === 0) {
-      switchPage(1);
-    }
-    // Swipe right (Previous page)
-    if (swipeDistance < -50 && currentIndex === 1) {
-      switchPage(0);
-    }
-  }
-
-  // --- 2. FORM SUBMISSION LOGIC ---
-  // Replace these URLs with your unique Google App Script Web App URLs
-  const config = {
-    bersandingUrl: 'https://script.google.com/macros/s/AKfycbyjQqRO7LFzsLVOEFa2baeV4fm1wUikeYvAdfIBJr6RYbEb9Bi1jueybDkap8HjXKVT/exec',
-    bertandangUrl: 'https://script.google.com/macros/s/AKfycbyjQqRO7LFzsLVOEFa2baeV4fm1wUikeYvAdfIBJr6RYbEb9Bi1jueybDkap8HjXKVT/exec'
-  };
-
-  function handleFormSubmit(formId, targetUrl) {
-    const form = document.getElementById(formId);
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      
-      const submitBtn = form.querySelector('.submit-btn');
-      submitBtn.disabled = true;
-      submitBtn.innerText = 'Sending...';
-
-      fetch(targetUrl, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-           alert('Terima kasih! RSVP anda berjaya dihantar.');
-           form.reset();
-        })
-        .catch(error => {
-           console.error('Error!', error.message);
-           alert('Sesuatu tidak kena. Sila cuba lagi.');
-        })
-        .finally(() => {
-           submitBtn.disabled = false;
-           submitBtn.innerText = 'Sahkan Kehadiran';
-        });
-    });
-  }
-
-  // Bind forms to their Google Script destinations
-  handleFormSubmit('bersandingForm', config.bersandingUrl);
-  handleFormSubmit('bertandangForm', config.bertandangUrl);
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Target the main structural screen element housing the toggle, info card, maps, and counter
-    // Replace '.mobile-container' with your card wrapper if you prefer a tighter swipe zone
-    const swipeZone = document.querySelector('.mobile-container') || document.body;
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    // Threshold in pixels needed to successfully register a true deliberate swipe action
-    const swipeThreshold = 50; 
-
-    swipeZone.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    swipeZone.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipeGesture();
-    }, { passive: true });
-
-    function handleSwipeGesture() {
-        const distanceX = touchEndX - touchStartX;
-
-        // Swipe Left: Moves toward the next event profile (Lelaki)
-        if (distanceX < -swipeThreshold) {
-            if (currentSide === 'perempuan') {
-                switchEvent('lelaki');
-            }
-        }
-        
-        // Swipe Right: Moves toward the previous event profile (Perempuan)
-        else if (distanceX > swipeThreshold) {
-            if (currentSide === 'lelaki') {
-                switchEvent('perempuan');
-            }
-        }
-    }
-});// Wedding Event Timing Records
         const weddingData = {
             perempuan: {
                 targetDate: "2026-08-29T12:00:00", 
@@ -532,16 +243,141 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        let currentSide = 'perempuan';
-        let countdownInterval;
+        const config = {
+            bersandingUrl: 'https://script.google.com/macros/s/AKfycbyjQqRO7LFzsLVOEFa2baeV4fm1wUikeYvAdfIBJr6RYbEb9Bi1jueybDkap8HjXKVT/exec',
+            bertandangUrl: 'https://script.google.com/macros/s/AKfycbyjQqRO7LFzsLVOEFa2baeV4fm1wUikeYvAdfIBJr6RYbEb9Bi1jueybDkap8HjXKVT/exec'
+        };
 
-        
+        // --- 2. INITIALIZATION ON LOADING ---
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('contact-list-1').innerHTML = generateContactList(globalData.contacts1);
+            document.getElementById('contact-list-2').innerHTML = generateContactList(globalData.contacts2);
+            switchEvent('perempuan');
+            setupGlobalSwipeHandlers();
+        });
+
+        // --- 3. SWIPE HANDLING LOGIC ENGINE ---
+        function setupGlobalSwipeHandlers() {
+            // Main Screen Tracker
+            swipeViewport.addEventListener('touchstart', e => { swipeStartX = e.changedTouches[0].screenX; }, { passive: true });
+            swipeViewport.addEventListener('touchend', e => {
+                swipeEndX = e.changedTouches[0].screenX;
+                if (swipeStartX - swipeEndX > 60 && currentScreenIdx < 1) goToScreen(currentScreenIdx + 1);
+                if (swipeEndX - swipeStartX > 60 && currentScreenIdx > 0) goToScreen(currentScreenIdx - 1);
+            }, { passive: true });
+
+            // RSVP Slider Container
+            viewport.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            viewport.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                const distance = touchStartX - touchEndX;
+                if (distance > 50 && currentIndex === 0) switchPage(1);
+                if (distance < -50 && currentIndex === 1) switchPage(0);
+            }, { passive: true });
+
+            // Details Component Event Swiper
+            const swipeZone = document.querySelector('.mobile-container') || document.body;
+            swipeZone.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            swipeZone.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                const distanceX = touchEndX - touchStartX;
+                if (distanceX < -50 && currentSide === 'perempuan') switchEvent('lelaki');
+                if (distanceX > 50 && currentSide === 'lelaki') switchEvent('perempuan');
+            }, { passive: true });
+
+            // Contacts Modal Viewport Swiper
+            const modalVp = document.getElementById('modalViewport');
+            modalVp.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            modalVp.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > 50) switchContactTab(1);
+                if (touchEndX - touchStartX > 50) switchContactTab(0);
+            }, { passive: true });
+        }
+
+        function goToScreen(index) {
+            currentScreenIdx = index;
+            swipeTrack.style.transform = `translateX(-${index * 50}%)`;
+            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+        }
+
+        function switchPage(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${index * 50}%)`;
+            tabs.forEach((tab, idx) => tab.classList.toggle('active', idx === index));
+            rsvpDots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+        }
+
+        // --- 4. CONTACTS GENERATOR & MODAL CONTROLLER ---
+        function generateContactList(contacts) {
+            return contacts.map(c => {
+                const cleanPhone = c.phone.replace(/\s+/g, '');
+                const waPhone = cleanPhone.startsWith('6') ? cleanPhone : `6${cleanPhone}`;
+                return `
+                    <div class="contact-row">
+                        <span class="contact-name">${c.name}</span>
+                        <div class="contact-actions">
+                            <a href="tel:${cleanPhone}">Call</a>
+                            <a href="https://wa.me/${waPhone}" target="_blank">WhatsApp</a>
+                        </div>
+                    </div>`;
+            }).join('');
+        }
+
+        function openContactModal() {
+            document.getElementById("contactModal").style.display = "flex";
+            switchContactTab(0); 
+        }
+
+        function closeContactModal(event) {
+            if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
+                document.getElementById("contactModal").style.display = "none";
+            }
+        }
+
+        function switchContactTab(index) {
+            currentTabIdx = index;
+            const modalTrack = document.getElementById("modalSliderTrack");
+            document.getElementById("tab1").classList.toggle("active", index === 0);
+            document.getElementById("tab2").classList.toggle("active", index === 1);
+            modalTrack.style.transform = `translateX(-${index * 50}%)`;
+        }
+
+        // --- 5. AUDIO SYSTEM ENGINE ---
+        function openInvitation() {
+            document.body.classList.remove('locked');
+            document.body.classList.add('revealed');
+            
+            const audio = document.getElementById('weddingMusic');
+            audio.play().then(() => {
+                const musicBtn = document.getElementById('musicBtn');
+                if(musicBtn) musicBtn.classList.add('playing'); 
+            }).catch(err => console.log("Audio contextual block: ", err));
+            
+            setTimeout(() => {
+                document.getElementById('swipeTrack').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        function toggleMusic() {
+            const audio = document.getElementById('weddingMusic');
+            const musicBtn = document.getElementById('musicBtn');
+            
+            if (audio.paused) {
+                audio.play().then(() => musicBtn?.classList.add('playing'))
+                .catch(err => console.log("Playback blocked: ", err));
+            } else {
+                audio.pause();
+                musicBtn?.classList.remove('playing');
+            }
+        }
+
+        // --- 6. DETAILS CARD SWITCHER & COUNTDOWN ---
         function switchEvent(side) {
             currentSide = side;
-            
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            const index = side === 'perempuan' ? 0 : 1;
-            document.querySelectorAll('.toggle-btn')[index].classList.add('active');
+            document.querySelectorAll('#details .toggle-btn').forEach((btn, idx) => {
+                btn.classList.toggle('active', (side === 'perempuan' && idx === 0) || (side === 'lelaki' && idx === 1));
+            });
             
             const data = weddingData[side];
             document.getElementById('event-info').innerHTML = `
@@ -550,8 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="info-label">Aturcara Majlis</div>
                 <div class="info-value">${data.timeStr}</div>
                 <div class="info-label">Lokasi</div>
-                <div class="info-value">${data.venue}</div>
-            `;
+                <div class="info-value">${data.venue}</div>`;
 
             document.getElementById('go-maps').href = data.mapsUrl;
             document.getElementById('go-waze').href = data.wazeUrl;
@@ -562,37 +397,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function startCountdown(dateString) {
             const targetTime = new Date(dateString).getTime();
-
-            function updateTimer() {
-                const now = new Date().getTime();
-                const difference = targetTime - now;
-
+            const updateTimer = () => {
+                const difference = targetTime - new Date().getTime();
                 if (difference <= 0) {
-                    document.getElementById('days').innerText = "00";
-                    document.getElementById('hours').innerText = "00";
-                    document.getElementById('mins').innerText = "00";
-                    document.getElementById('secs').innerText = "00";
+                    ['days','hours','mins','secs'].forEach(id => document.getElementById(id).innerText = "00");
                     clearInterval(countdownInterval);
                     return;
                 }
-
-                const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((difference % (1000 * 60)) / 1000);
+                const d = Math.floor(difference / 86400000);
+                const h = Math.floor((difference % 86400000) / 3600000);
+                const m = Math.floor((difference % 3600000) / 60000);
+                const s = Math.floor((difference % 60000) / 1000);
 
                 document.getElementById('days').innerText = d < 10 ? '0' + d : d;
                 document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
                 document.getElementById('mins').innerText = m < 10 ? '0' + m : m;
                 document.getElementById('secs').innerText = s < 10 ? '0' + s : s;
-            }
-
+            };
             updateTimer();
             countdownInterval = setInterval(updateTimer, 1000);
         }
 
-        // Initialize layout configurations on mount
-        switchEvent('perempuan');
+        // --- 7. FORM SYSTEM ENDPOINTS ASYNC ACTIONS ---
+        function handleFormSubmit(formId, targetUrl) {
+            const form = document.getElementById(formId);
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const submitBtn = form.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'Sending...';
+
+                fetch(targetUrl, { method: 'POST', body: new FormData(form) })
+                .then(() => {
+                    alert('Terima kasih! RSVP anda berjaya dihantar.');
+                    form.reset();
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('Sesuatu tidak kena. Sila cuba lagi.');
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Sahkan Kehadiran';
+                });
+            });
+        }
+
+        handleFormSubmit('bersandingForm', config.bersandingUrl);
+        handleFormSubmit('bertandangForm', config.bertandangUrl);
     </script>
 </body>
 </html>
