@@ -102,6 +102,58 @@
                 <a href="#" id="go-waze" target="_blank" class="map-btn btn-waze">🎯 WAZE</a>
             </div>
         </section>
+        
+        <section class="screen2" id="rsvp">
+           <div class="tabs">
+    <button class="tab-btn active" onclick="switchPage(0)">Bersanding</button>
+    <button class="tab-btn" onclick="switchPage(1)">Bertandang</button>
+  </div>
+
+  <!-- Swipeable Area -->
+  <div class="slider-viewport" id="sliderViewport">
+    <div class="slider-track" id="sliderTrack">
+      
+      <!-- PAGE 1: BERSANDING -->
+      <div class="form-page">
+        <h2>RSVP Majlis Bersanding</h2>
+        <form id="bersandingForm">
+          <input type="hidden" name="formId" value="bersandingForm">  
+          <div class="form-group">
+            <label for="nameBersanding">Nama Tetamu:</label>
+            <input type="text" id="nameBersanding" name="name" required placeholder="Nama penuh anda">
+          </div>
+          <div class="form-group">
+            <label for="paxBersanding">Pek:</label>
+            <input type="number" id="paxBersanding" name="pax" min="1" required placeholder="Jumlah kehadiran">
+          </div>
+          <button type="submit" class="submit-btn">Sahkan Kehadiran</button>
+        </form>
+        <p class="hint">← Swipe left for Bertandang RSVP →</p>
+      </div>
+
+      <!-- PAGE 2: BERTANDANG -->
+      <div class="form-page">
+        <h2>RSVP Majlis Bertandang</h2>
+        <form id="bertandangForm">
+          <input type="hidden" name="formId" value="bertandangForm">
+          <div class="form-group">
+            <label for="nameBertandang">Nama Guest:</label>
+            <input type="text" id="nameBertandang" name="name" required placeholder="Nama penuh anda">
+          </div>
+          <div class="form-group">
+            <label for="paxBertandang">Pax:</label>
+            <input type="number" id="paxBertandang" name="pax" min="1" required placeholder="Jumlah kehadiran">
+          </div>
+          <button type="submit" class="submit-btn">Sahkan Kehadiran</button>
+        </form>
+        <p class="hint">← Swipe right for Bersanding RSVP →</p>
+      </div>
+
+    </div>
+  </div> 
+
+
+        </section>
 
     </div>
 
@@ -337,9 +389,89 @@ function goToScreen(index) {
         }
 
         
+
         // ==========================================================================
-// SWIPE INTERACTION CONTROLLER FOR WEDDING EVENT SECTIONS
+// RSVP
+
 // ==========================================================================
+
+const track = document.getElementById('sliderTrack');
+  const viewport = document.getElementById('sliderViewport');
+  const tabs = document.querySelectorAll('.tab-btn');
+  
+
+
+  // Function to move slider to specific page index (0 or 1)
+  function switchPage(index) {
+    currentIndex = index;
+    track.style.transform = `translateX(-${index * 50}%)`;
+    
+    // Update active tab styles
+    tabs.forEach((tab, idx) => {
+      if(idx === index) tab.classList.add('active');
+      else tab.classList.remove('active');
+    });
+  }
+
+
+viewport.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  }, { passive: true });
+
+  function handleGesture() {
+    const swipeDistance = touchStartX - touchEndX;
+    
+    // Swipe left (Next page)
+    if (swipeDistance > 50 && currentIndex === 0) {
+      switchPage(1);
+    }
+    // Swipe right (Previous page)
+    if (swipeDistance < -50 && currentIndex === 1) {
+      switchPage(0);
+    }
+  }
+
+  // --- 2. FORM SUBMISSION LOGIC ---
+  // Replace these URLs with your unique Google App Script Web App URLs
+  const config = {
+    bersandingUrl: 'https://script.google.com/macros/s/AKfycbyjQqRO7LFzsLVOEFa2baeV4fm1wUikeYvAdfIBJr6RYbEb9Bi1jueybDkap8HjXKVT/exec',
+    bertandangUrl: 'https://script.google.com/macros/s/AKfycbyjQqRO7LFzsLVOEFa2baeV4fm1wUikeYvAdfIBJr6RYbEb9Bi1jueybDkap8HjXKVT/exec'
+  };
+
+  function handleFormSubmit(formId, targetUrl) {
+    const form = document.getElementById(formId);
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      const submitBtn = form.querySelector('.submit-btn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Sending...';
+
+      fetch(targetUrl, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+           alert('Terima kasih! RSVP anda berjaya dihantar.');
+           form.reset();
+        })
+        .catch(error => {
+           console.error('Error!', error.message);
+           alert('Sesuatu tidak kena. Sila cuba lagi.');
+        })
+        .finally(() => {
+           submitBtn.disabled = false;
+           submitBtn.innerText = 'Sahkan Kehadiran';
+        });
+    });
+  }
+
+  // Bind forms to their Google Script destinations
+  handleFormSubmit('bersandingForm', config.bersandingUrl);
+  handleFormSubmit('bertandangForm', config.bertandangUrl);
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // Target the main structural screen element housing the toggle, info card, maps, and counter
@@ -384,8 +516,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetDate: "2026-08-29T12:00:00", 
                 dateStr: "Sabtu, 29 Ogos 2026", 
                 hijriStr: "16 Rabiulawal 1448", 
-                timeStr: "12:00 PM - 5:00 PM (Bersanding: 1:00 PM)", 
-                venue: "LOT 525, Kg Pohon Buloh, Pasir Mas, Kelantan.", 
+                timeStr: "12:00 PM - 5:00 PM<br>(Bersanding: 1:00 PM)", 
+                venue: "LOT 525, Kg Pohon Buloh,<br>Pasir Mas, Kelantan.", 
                 mapsUrl: "https://maps.app.goo.gl/K8B81AwwJ2ubPX6b9", 
                 wazeUrl: "https://waze.com/ul?q=LOT+525+Kg+Pohon+Buloh+Pasir+Mas+Kelantan", 
             },
@@ -393,8 +525,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 targetDate: "2026-10-24T11:00:00", 
                 dateStr: "Sabtu, 24 Okt 2026", 
                 hijriStr: "13 Jamadilawal 1448", 
-                timeStr: "11:00 AM - 4:30 PM (Bersanding: 11:15 AM)", 
-                venue: "Bagan Serai Wedding Hall, Bagan Serai, Perak.", 
+                timeStr: "11:00 AM - 4:30 PM<br>(Bersanding: 11:15 AM)", 
+                venue: "Bagan Serai Wedding Hall,<br>Bagan Serai, Perak.", 
                 mapsUrl: "https://maps.app.goo.gl/G7q1YJeRBPmo55dL8", 
                 wazeUrl: "https://waze.com/ul?q=Bagan+Serai+Wedding+Hall+Perak", 
             }
