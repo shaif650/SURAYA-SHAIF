@@ -63,7 +63,7 @@ body.locked .mobile-container {
 }
 
 /* ==========================================================================
-   3. SCREEN & ANIMATION CONTROLS
+   3. SCREEN & ANIMATION CONTROLS (Updated for Bottom Nav Padding)
    ========================================================================== */
 .screen, .screen2 {
     display: flex;
@@ -71,8 +71,9 @@ body.locked .mobile-container {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
-    max-height: 920px;
+    /* Strict viewport constraint minus the height of the bottom nav */
+    height: calc(100vh - 80px); 
+    max-height: 840px; /* 920px max - 80px nav height */
     padding: 40px 24px;
     text-align: center;
     position: relative;
@@ -103,8 +104,13 @@ body.locked .mobile-container {
     border-radius: 30px 30px 0 0;
     position: fixed;
     bottom: 0;
+    
+    /* Strict Width Controls: Ensures it locks inside the 450px boundary */
     width: 100%;          
     max-width: 450px;       
+    left: 50%;
+    transform: translateX(-50%) translateY(150%); /* Centered horizontally, hidden vertically */
+    
     height: 80px;
     background-color: #e2e8f0;
     opacity: 0.85;
@@ -112,18 +118,17 @@ body.locked .mobile-container {
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    transform: translateY(150%);
     transition: transform 0.6s ease-in-out;
     z-index: 10;
 }
 
+/* Updated selector to preserve horizontal centering when revealed */
 body.revealed #undangan {
     display: block; 
 }
 body.revealed .bottom-nav {
-    transform: translateY(0); 
+    transform: translateX(-50%) translateY(0); 
 }
-
 /* ==========================================================================
    4. TYPOGRAPHY & ELEMENTS
    ========================================================================== */
@@ -399,7 +404,13 @@ button.submit-btn:hover {
 .modal-overlay {
     display: none;
     position: fixed;
-    width: 450px; 
+    
+    /* Strict Width Controls for Modals */
+    width: 100%;
+    max-width: 450px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
     height: 100%;
     background: rgba(226, 232, 240, 0.25);
     justify-content: center;
@@ -412,7 +423,7 @@ button.submit-btn:hover {
     background: #d4d9e0;
     opacity: 0.95;
     width: 350px;
-    height: 280px;
+    height: 295px;
     border-radius: 25px; 
     position: relative;
     overflow: hidden;
@@ -587,8 +598,8 @@ button.submit-btn:hover {
     gap: 10px;
     z-index: 10;
 }
-.swipe-indicators { bottom: 110px; }
-.swipe-indicators2 { bottom: 180px; }
+.swipe-indicators { bottom: 100px; }
+.swipe-indicators2 { bottom: 140px; }
 .swipe-indicators3, .swipe-indicators4 { bottom: 5px; }
 .swipe-indicators4 { z-index: auto; }
 
@@ -687,6 +698,7 @@ label {
         border: 8px solid #1e293b; 
     }
 
+    /* Recalculates the exact position inside the tablet/desktop frame container */
     .bottom-nav {
         border-radius: 0 0 32px 32px; 
         bottom: calc(2.5vh + 8px); 
@@ -694,7 +706,7 @@ label {
 }
 
 /* Dynamic Font & Element Ratio Scaling Across All Viewports */
-@container app-wrapper (max-width: 450px) {
+@container app-wrapper (min-width: 450px) {
     .screen, .screen2 {
         padding: 8.8cqw 5.3cqw;
     }
@@ -727,9 +739,7 @@ label {
         border-radius: 3.5cqw;
         margin-bottom: 4.4cqw;
     }
-    .info-value {
-        font-size: 2.1cqw;
-    }
+  
     .btn, button.submit-btn {
         font-size: 3.1cqw;
     }
