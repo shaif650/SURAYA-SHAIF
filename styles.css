@@ -36,7 +36,7 @@ body.locked .mobile-container {
 
 .mobile-container {
     width: 100%;
-    max-width: 450px;
+    max-width:500px;
     height: 100vh;
     max-height: 920px;
     background-image: url('img/bgfull.png');
@@ -107,7 +107,7 @@ body.locked .mobile-container {
     
     /* Strict Width Controls: Ensures it locks inside the 450px boundary */
     width: 100%;          
-    max-width: 450px;       
+    max-width: 500px;       
     left: 50%;
     transform: translateX(-50%) translateY(150%); /* Centered horizontally, hidden vertically */
     
@@ -364,22 +364,23 @@ button.submit-btn:hover {
     color: #64748b;
     font-size: 11px;
     cursor: pointer;
+    z-index: 9999;
 }
 .nav-item2 {
-    z-index: 2;
+    z-index: 9999;
 }
 .nav-item.active, .nav-item:hover, .nav-item.active2, .nav-item2:hover {
     color: #0B1B4F;
 }
 .nav-item.active2, .nav-item2:hover {
-    z-index: 2;
+    z-index: 9999;
 }
 .nav-icon, .nav-icon2 {
     font-size: 20px;
     margin-bottom: 2px;
 }
 .nav-icon2 {
-    z-index: 2;
+    z-index: 9999;
 }
 
 .music-toggle {
@@ -407,7 +408,7 @@ button.submit-btn:hover {
     
     /* Strict Width Controls for Modals */
     width: 100%;
-    max-width: 450px; 
+    max-width: 500px; 
     left: 50%;
     transform: translateX(-50%);
     
@@ -598,8 +599,8 @@ button.submit-btn:hover {
     gap: 10px;
     z-index: 10;
 }
-.swipe-indicators { bottom: 100px; }
-.swipe-indicators2 { bottom: 140px; }
+.swipe-indicators { bottom: 150px; }
+.swipe-indicators2 { bottom: 200px; }
 .swipe-indicators3, .swipe-indicators4 { bottom: 5px; }
 .swipe-indicators4 { z-index: auto; }
 
@@ -706,41 +707,3 @@ label {
 }
 
 /* Dynamic Font & Element Ratio Scaling Across All Viewports */
-@container app-wrapper (min-width: 450px) {
-    .screen, .screen2 {
-        padding: 8.8cqw 5.3cqw;
-    }
-    .monogram {
-        width: 35.5cqw;
-        height: 35.5cqw;
-        margin-bottom: 4.4cqw;
-    }
-    .names {
-        font-size: 8.6cqw;
-        margin-bottom: 5.5cqw;
-    }
-    .pname {
-        font-size: 6.2cqw;
-        margin-top: 4.4cqw;
-        margin-bottom: 4.4cqw;
-    }
-    .title {
-        font-size: 3.5cqw;
-        margin-bottom: 4.4cqw;
-    }
-    .verse, .verse2 {
-        font-size: 4.4cqw;
-    }
-    .text-ver {
-        font-size: 3.3cqw;
-    }
-    .info-card {
-        padding: 5.3cqw;
-        border-radius: 3.5cqw;
-        margin-bottom: 4.4cqw;
-    }
-  
-    .btn, button.submit-btn {
-        font-size: 3.1cqw;
-    }
-}
