@@ -63,8 +63,8 @@
                 </section>
             </div>
 
-            <!-- Bottom Circle Indicators -->
-            <div class="swipe-indicators">
+            <!-- Bottom Circle Indicators (Main Screen) -->
+            <div class="swipe-indicators" id="mainIndicators">
                 <span class="dot active" onclick="goToScreen(0)"></span>
                 <span class="dot" onclick="goToScreen(1)"></span>
             </div>
@@ -89,6 +89,12 @@
             <!-- Dynamic Info Cards -->
             <div class="info-card" id="event-info"></div>
         
+            <!-- Detail Indicators (Fixed & Synchronized) -->
+            <div class="swipe-indicators2" id="detailIndicators" style="margin-bottom: 15px; margin-top: 5px;">
+                <span class="dot active" onclick="switchEvent('perempuan')"></span>
+                <span class="dot" onclick="switchEvent('lelaki')"></span>
+            </div>
+
             <div class="map-button-group">
                 <a href="#" id="go-maps" target="_blank" class="map-btn btn-google">🚗 G-MAPS</a>
                 <a href="#" id="go-waze" target="_blank" class="map-btn btn-waze">🎯 WAZE</a>
@@ -137,8 +143,8 @@
                     </div>
                 </div>
 
-                <!-- Synchronized Bottom Indicators -->
-                <div class="swipe-indicators2">
+                <!-- Synchronized Bottom Indicators (RSVP) -->
+                <div class="swipe-indicators3" id="rsvpIndicators">
                     <span class="dot active" onclick="switchPage(0)"></span>
                     <span class="dot" onclick="switchPage(1)"></span>
                 </div>
@@ -164,10 +170,11 @@
             <span class="nav-icon">✍️</span>
             <span>RSVP</span>
         </a>
-        <a href="javascript:void(0)" class="nav-item" onclick="openContactModal()">
-            <span class="nav-icon">📞</span>
+
+        <div href="javascript:void(0)" class="nav-item2" onclick="openContactModal()">
+            <span class="nav-icon2">📞</span>
             <span>Hubungi</span>
-        </a>
+        </div>
     </nav>
 
     <!-- Contacts Modal Window -->
@@ -186,6 +193,12 @@
                     <div id="contact-list-2" class="slide-page"></div>
                 </div>
             </div>
+
+            <!-- Contact Modal Indicators (Fixed & Synchronized) -->
+            <div class="swipe-indicators4" id="modalIndicators" style="margin-top: 15px; margin-bottom: 5px;">
+                <span class="dot active" onclick="switchContactTab(0)"></span>
+                <span class="dot" onclick="switchContactTab(1)"></span>
+            </div>
         </div>
     </div>
 
@@ -203,11 +216,9 @@
 
         const swipeViewport = document.querySelector('.swipe-viewport');
         const swipeTrack = document.getElementById('swipeTrack');
-        const dots = document.querySelectorAll('.swipe-indicators .dot');
         const track = document.getElementById('sliderTrack');
         const viewport = document.getElementById('sliderViewport');
         const tabs = document.querySelectorAll('.tab-btn');
-        const rsvpDots = document.querySelectorAll('.swipe-indicators2 .dot');
 
         const globalData = {
             contacts1: [
@@ -276,7 +287,7 @@
             }, { passive: true });
 
             // Details Component Event Swiper
-            const swipeZone = document.querySelector('.mobile-container') || document.body;
+            const swipeZone = document.getElementById('details');
             swipeZone.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
             swipeZone.addEventListener('touchend', e => {
                 touchEndX = e.changedTouches[0].screenX;
@@ -298,14 +309,14 @@
         function goToScreen(index) {
             currentScreenIdx = index;
             swipeTrack.style.transform = `translateX(-${index * 50}%)`;
-            dots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+            document.querySelectorAll('#mainIndicators .dot').forEach((dot, idx) => dot.classList.toggle('active', idx === index));
         }
 
         function switchPage(index) {
             currentIndex = index;
             track.style.transform = `translateX(-${index * 50}%)`;
             tabs.forEach((tab, idx) => tab.classList.toggle('active', idx === index));
-            rsvpDots.forEach((dot, idx) => dot.classList.toggle('active', idx === index));
+            document.querySelectorAll('#rsvpIndicators .dot').forEach((dot, idx) => dot.classList.toggle('active', idx === index));
         }
 
         // --- 4. CONTACTS GENERATOR & MODAL CONTROLLER ---
@@ -341,6 +352,9 @@
             document.getElementById("tab1").classList.toggle("active", index === 0);
             document.getElementById("tab2").classList.toggle("active", index === 1);
             modalTrack.style.transform = `translateX(-${index * 50}%)`;
+            
+            // Fixed: Updates indicators inside the contact modal
+            document.querySelectorAll('#modalIndicators .dot').forEach((dot, idx) => dot.classList.toggle('active', idx === index));
         }
 
         // --- 5. AUDIO SYSTEM ENGINE ---
@@ -377,6 +391,11 @@
             currentSide = side;
             document.querySelectorAll('#details .toggle-btn').forEach((btn, idx) => {
                 btn.classList.toggle('active', (side === 'perempuan' && idx === 0) || (side === 'lelaki' && idx === 1));
+            });
+            
+            // Fixed: Updates indicators inside the details section
+            document.querySelectorAll('#detailIndicators .dot').forEach((dot, idx) => {
+                dot.classList.toggle('active', (side === 'perempuan' && idx === 0) || (side === 'lelaki' && idx === 1));
             });
             
             const data = weddingData[side];
