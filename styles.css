@@ -408,7 +408,7 @@ button.submit-btn:hover {
     background: #d4d9e0;
     opacity: 0.95;
     width: 350px;
-    height: 300px;
+    height: 290px;
     border-radius: 25px; 
     position: relative;
     overflow: hidden;
@@ -659,4 +659,53 @@ label {
     font-size: 12px;
     color: #1d4579;
     margin-top: 15px;
+}
+
+/* ==========================================================================
+   8. MOBILE VIEWPORT & TABLET SCREEN RATIO OPTIMIZATIONS
+   ========================================================================== */
+
+/* 
+   Ensures proper device scaling, controls viewport heights across modern iOS/Android,
+   and optimizes tablet display presentation without modifying native app container logic.
+*/
+
+@viewport {
+    width: device-width;
+    zoom: 1.0;
+}
+
+/* Tablet & Desktop Layout Adjustment */
+@media screen and (min-width: 768px) {
+    body {
+        background-color: #cbd5e1; /* Marginally darker contrast background for tablet frames */
+        padding: 20px;
+    }
+
+    .mobile-container {
+        height: 95vh; /* Prevents stretching past fluid view bounds on shorter tablets */
+        border-radius: 40px; /* Smooth device-like framing for larger displays */
+        border: 8px solid #1e293b; /* Premium outer frame wrapper effect */
+    }
+
+    .bottom-nav {
+        border-radius: 0 0 32px 32px; /* Curves bottom nav edges to match tablet frame boundary */
+        bottom: calc(2.5vh + 8px); /* Anchors flawlessly right against the bottom inner border */
+    }
+}
+
+/* Landscape / Dynamic Aspect Ratio Fix for High-End Android & iPhones */
+@media screen and (max-height: 700px) and (max-width: 480px) {
+    .screen, .screen2 {
+        padding: 20px 16px; /* Dynamically re-pads structural headers if hardware heights contract */
+    }
+    .monogram {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+    .names {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
 }
