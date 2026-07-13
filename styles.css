@@ -695,7 +695,7 @@ label {
 }
 
 /* Landscape / Dynamic Aspect Ratio Fix for High-End Android & iPhones */
-@media screen and (max-height: 700px) and (max-width: 480px) {
+@media screen and (max-height: 926px) and (max-width: 428px) {
     .screen, .screen2 {
         padding: 20px 16px; /* Dynamically re-pads structural headers if hardware heights contract */
     }
