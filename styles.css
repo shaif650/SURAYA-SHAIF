@@ -408,7 +408,7 @@ button.submit-btn:hover {
     background: #d4d9e0;
     opacity: 0.95;
     width: 350px;
-    height: 290px;
+    height: 270px;
     border-radius: 25px; 
     position: relative;
     overflow: hidden;
@@ -584,7 +584,7 @@ button.submit-btn:hover {
     z-index: 10;
 }
 .swipe-indicators { bottom: 110px; }
-.swipe-indicators2 { bottom: 180px; }
+.swipe-indicators2 { bottom: 160px; }
 .swipe-indicators3, .swipe-indicators4 { bottom: 5px; }
 .swipe-indicators4 { z-index: auto; }
 
