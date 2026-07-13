@@ -47,6 +47,10 @@ body.locked .mobile-container {
     position: relative;
     box-shadow: 0 12px 40px rgba(0,0,0,0.25);
     scroll-behavior: smooth;
+
+    /* FLUID RATIO SCALE EMULATION: Converts wrapper into a design container anchor */
+    container-type: inline-size;
+    container-name: app-wrapper;
 }
 
 /* Modern minimalist scrollbar */
@@ -316,7 +320,7 @@ button.submit-btn:hover {
 .map-button-group {
     display: flex;
     justify-content: center; 
-    gap: 12px;               
+    gap: 12px;              
     width: 100%;
     margin: 15px 0;          
 }
@@ -326,7 +330,7 @@ button.submit-btn:hover {
     align-items: center;
     justify-content: center;
     gap: 6px;
-    flex: 1;                 
+    flex: 1;                
     max-width: 60px;        
     height: 60px;
     padding: 0 10px;
@@ -584,7 +588,7 @@ button.submit-btn:hover {
     z-index: 10;
 }
 .swipe-indicators { bottom: 110px; }
-.swipe-indicators2 { bottom: 160px; }
+.swipe-indicators2 { bottom: 180px; }
 .swipe-indicators3, .swipe-indicators4 { bottom: 5px; }
 .swipe-indicators4 { z-index: auto; }
 
@@ -665,11 +669,6 @@ label {
    8. MOBILE VIEWPORT & TABLET SCREEN RATIO OPTIMIZATIONS
    ========================================================================== */
 
-/* 
-   Ensures proper device scaling, controls viewport heights across modern iOS/Android,
-   and optimizes tablet display presentation without modifying native app container logic.
-*/
-
 @viewport {
     width: device-width;
     zoom: 1.0;
@@ -678,34 +677,60 @@ label {
 /* Tablet & Desktop Layout Adjustment */
 @media screen and (min-width: 768px) {
     body {
-        background-color: #cbd5e1; /* Marginally darker contrast background for tablet frames */
+        background-color: #cbd5e1; 
         padding: 20px;
     }
 
     .mobile-container {
-        height: 95vh; /* Prevents stretching past fluid view bounds on shorter tablets */
-        border-radius: 40px; /* Smooth device-like framing for larger displays */
-        border: 8px solid #1e293b; /* Premium outer frame wrapper effect */
+        height: 95vh; 
+        border-radius: 40px; 
+        border: 8px solid #1e293b; 
     }
 
     .bottom-nav {
-        border-radius: 0 0 32px 32px; /* Curves bottom nav edges to match tablet frame boundary */
-        bottom: calc(2.5vh + 8px); /* Anchors flawlessly right against the bottom inner border */
+        border-radius: 0 0 32px 32px; 
+        bottom: calc(2.5vh + 8px); 
     }
 }
 
-/* Landscape / Dynamic Aspect Ratio Fix for High-End Android & iPhones */
-@media screen and (max-height: 926px) and (max-width: 428px) {
+/* Dynamic Font & Element Ratio Scaling Across All Viewports */
+@container app-wrapper (max-width: 450px) {
     .screen, .screen2 {
-        padding: 20px 16px; /* Dynamically re-pads structural headers if hardware heights contract */
+        padding: 8.8cqw 5.3cqw;
     }
     .monogram {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 10px;
+        width: 35.5cqw;
+        height: 35.5cqw;
+        margin-bottom: 4.4cqw;
     }
     .names {
-        font-size: 32px;
-        margin-bottom: 15px;
+        font-size: 8.6cqw;
+        margin-bottom: 5.5cqw;
+    }
+    .pname {
+        font-size: 6.2cqw;
+        margin-top: 4.4cqw;
+        margin-bottom: 4.4cqw;
+    }
+    .title {
+        font-size: 3.5cqw;
+        margin-bottom: 4.4cqw;
+    }
+    .verse, .verse2 {
+        font-size: 4.4cqw;
+    }
+    .text-ver {
+        font-size: 3.3cqw;
+    }
+    .info-card {
+        padding: 5.3cqw;
+        border-radius: 3.5cqw;
+        margin-bottom: 4.4cqw;
+    }
+    .info-value {
+        font-size: 2.1cqw;
+    }
+    .btn, button.submit-btn {
+        font-size: 3.1cqw;
     }
 }
