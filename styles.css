@@ -97,7 +97,13 @@ body.locked .mobile-container {
 }
 
 #undagan #details {
-    display: none;
+   
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding:25;
+    margin-bottom: 80px;
+
 }
 
 .bottom-nav {
@@ -497,6 +503,8 @@ button.submit-btn:hover {
     position: relative;
     width: 100%;
     overflow: hidden;
+    padding:25;
+    margin-bottom: 80px;
 }
 
 .slider-track, .swipe-track {
@@ -600,7 +608,7 @@ button.submit-btn:hover {
     z-index: 10;
 }
 .swipe-indicators { bottom: 150px; }
-.swipe-indicators2 { bottom: 200px; }
+.swipe-indicators2 { bottom: 180px; }
 .swipe-indicators3, .swipe-indicators4 { bottom: 5px; }
 .swipe-indicators4 { z-index: auto; }
 
@@ -707,3 +715,48 @@ label {
 }
 
 /* Dynamic Font & Element Ratio Scaling Across All Viewports */
+/* ==========================================================================
+   8. LANDSCAPE & SHORT SCREEN OPTIMIZATION
+   ========================================================================== */
+@media (orientation: landscape) and (max-height: 600px) {
+    /* 1. Stop forcing the containers to fit the screen height; let them scroll */
+    .mobile-container, 
+    .screen, 
+    .screen2 {
+        height: auto !important;
+        min-height: 100vh;
+        max-height: none !important;
+        padding: 24px 24px; /* Halve the top/bottom padding to save space */
+    }
+
+    /* 2. Scale down the large graphic elements so they fit the viewport */
+    .monogram {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    /* 3. Reduce large spacing and text gaps */
+    .names {
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+    
+    .countdown-grid {
+        margin: 10px 0 20px 0;
+    }
+
+    /* 4. Convert fixed floating navigation into a sticky footer */
+    .bottom-nav {
+        position: sticky;
+        bottom: 0;
+        transform: translateY(0) !important; /* Force it visible if triggered */
+        border-radius: 0;
+    }
+    
+    /* 5. Prevent modal overlay clipping */
+    .modal-overlay {
+        position: absolute;
+        height: 100%;
+    }
+}
